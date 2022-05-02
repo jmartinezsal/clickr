@@ -22,12 +22,19 @@ function Navigation({ isLoaded }){
   }
 
   return (
-    <ul>
-      <li>
-        <NavLink exact to="/">Home</NavLink>
-        {isLoaded && sessionLinks}
-      </li>
-    </ul>
+    <div className="nav-bar">
+      <div className='nav-bar-left'>
+        <i class="fa-solid fa-bars"></i>
+        <NavLink exact to="/">
+          <img src='/images/logo.svg' alt="logo"/>
+        </NavLink>
+      </div>
+      <ul className= "nav-bar-right">
+        <li>
+          {isLoaded && sessionLinks}
+        </li>
+      </ul>
+    </div>
   );
 }
 
