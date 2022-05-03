@@ -32,18 +32,16 @@ async function createPhoto(details){
   return image.id;
 }
 
-async function updatePhoto(details){
-  let id = details.id;
-  delete details.id;
+async function updatePhoto(details, id){
 
-  await Image.update(
-    details,
-    {
-      where:{id},
+  const {imageUrl, title, description } = details;
+
+  await Image.update( details, {
+      where: {id},
       returning: true,
       plain: true
     })
-  return await Image.findByPk(id);
+  return id;
 }
 
 async function deletePhoto(id){

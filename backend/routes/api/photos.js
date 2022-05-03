@@ -34,9 +34,9 @@ router.post('/upload', photoValidators, asyncHandler(async (req, res) =>{
 }));
 
 router.put('/:id(\\d+)/edit',  photoValidators, asyncHandler(async (req, res) =>{
-
-  await PhotosRepository.updatePhoto(req.body)
-  return res.redirect(`/photos/${req.params.id}`);
+  const id = await PhotosRepository.updatePhoto(req.body, req.params.id)
+  const photo = await PhotosRepository.findOnePhoto(id)
+  return res.json(photo);
 
 }));
 
