@@ -1,11 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const apiRouter = require('./api');
-const photosRouter = require('../photos.js');
 
 
 router.use('/api', apiRouter);
-router.use('/photos', photosRouter);
 
 // Static routes
 // Serve React build files in production
