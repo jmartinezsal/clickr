@@ -6,7 +6,7 @@ const load = photos =>({
 });
 
 export const getAllPhotos = async dispatch =>{
-  const res = await fetch('/api/pokemon');
+  const res = await fetch('/api/photos');
 
   if(res.ok){
     const photos = await res.json();
@@ -14,15 +14,23 @@ export const getAllPhotos = async dispatch =>{
   }
 }
 
-const initialState = {}
+const initialState = { list:[] };
 
 
-const pokemonReducer = (state = initialState, action) =>{
+const photosReducer = (state = initialState, action) =>{
   switch(action.type){
     case LOAD:
       const allPhotos = {};
       action.photos.forEach(photo => {
-        allPhotos[photo.id] 
+        allPhotos[photo.id] = photo
       });
+      return {
+        ...state,
+        ...allPhotos
+      }
+    default:
+      return state;
   }
-}
+};
+
+export default photosReducer;

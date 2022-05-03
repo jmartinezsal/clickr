@@ -1,20 +1,18 @@
+const asyncHandler = require('express-async-handler');
+const { setTokenCookie } = require('../../utils/auth.js');
 const router = require('express').Router();
+
+const { User } = require('../../db/models');
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
-
+const photosRouter = require('./photos.js');
 
 
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
-
-// router.post('/test', function(req,res){
-//   res.json({ requestBody: req.body });
-// })
+router.use('/photos', photosRouter);
 
 // GET /api/set-token-cookie
-const asyncHandler = require('express-async-handler');
-const { setTokenCookie } = require('../../utils/auth.js');
-const { User } = require('../../db/models');
 router.get('/set-token-cookie', asyncHandler(async (_req, res) => {
   const user = await User.findOne({
       where: {

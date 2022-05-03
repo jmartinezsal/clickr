@@ -15,8 +15,8 @@ function Navigation({ isLoaded }){
   } else {
     sessionLinks = (
       <>
-        <NavLink to="/login">Log In</NavLink>
-        <NavLink to="/signup">Sign Up</NavLink>
+        <NavLink to="/login" id="login-btn">Log In</NavLink>
+        <NavLink to="/signup" id="signup-btn">Sign Up</NavLink>
       </>
     );
   }
@@ -24,15 +24,14 @@ function Navigation({ isLoaded }){
   return (
     <div className="nav-bar">
       <div className='nav-bar-left'>
-        <i class="fa-solid fa-bars"></i>
         <NavLink exact to="/">
           <img src='/images/logo.svg' alt="logo"/>
         </NavLink>
       </div>
       <ul className= "nav-bar-right">
-        <li>
+
           {isLoaded && sessionLinks}
-        </li>
+
       </ul>
     </div>
   );

@@ -17,8 +17,22 @@ const validateLogin = [
   check('password')
     .exists({ checkFalsy: true })
     .withMessage('Please provide a password.'),
-  handleValidationErrors
-];
+    handleValidationErrors
+  ];
+  
+  // Restore session user
+  router.get(
+    '/',
+    restoreUser,
+    (req, res) => {
+      const { user } = req;
+      if (user) {
+        return res.json({
+          user: user.toSafeObject()
+        });
+      } else return res.json({});
+    }
+  );
 
 //Log in
 router.post(
@@ -54,18 +68,5 @@ router.delete(
   }
 );
 
-// Restore session user
-router.get(
-  '/',
-  restoreUser,
-  (req, res) => {
-    const { user } = req;
-    if (user) {
-      return res.json({
-        user: user.toSafeObject()
-      });
-    } else return res.json({});
-  }
-);
 
 module.exports = router;
