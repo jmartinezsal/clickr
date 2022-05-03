@@ -29,8 +29,8 @@ router.get('/:id(\\d+)', asyncHandler(async(req,res) =>{
 }))
 
 router.post('/upload', photoValidators, asyncHandler(async (req, res) =>{
-  const id = await PhotosRepository.createPhoto(req.body);
-  return res.redirect(`/`)
+  const photo = await PhotosRepository.createPhoto(req.body);
+  return res.json(photo)
 }));
 
 router.put('/:id(\\d+)/edit',  photoValidators, asyncHandler(async (req, res) =>{

@@ -1,19 +1,35 @@
-const { Image } = require("./models");
+const { Image, User, Comment } = require("./models");
 
 async function allPhotos() {
-  return await Image.findAll();
+  return await Image.findAll({
+    order:[['createdAt', 'DESC']]
+  });
 }
 
 async function findOnePhoto(id) {
-  let photo = await Image.findByPk(id);
-  return photo;
+  let image = await Image.findByPk(id, {
+    include: [{
+      model: User,
+      attributes:["username"]
+    },
+    {
+      model: Comment,
+      order:[['createdAt', 'DESC']]
+    }],
+  });
+  return image;
 }
 
 async function createPhoto(details){
-  let photo = await Image.create({
-    ...details
+  const {imageUrl, title, description, userId } = details;
+
+  let image = await Image.create({
+    imageUrl,
+    title,
+    description,
+    userId
   })
-  return photo.id;
+  return image.id;
 }
 
 async function updatePhoto(details){
@@ -31,15 +47,15 @@ async function updatePhoto(details){
 }
 
 async function deletePhoto(id){
-  const photo = await Image.findByPk(id);
-  if(!photo) throw new Error("Cannot find the photo");
+  const image = await Image.findByPk(id);
+  if(!image) throw new Error("Cannot find the image");
 
   await Image.destroy({
     where:{
-      id: photo.id
+      id: image.id
     }
   })
-  return photo.id
+  return image.id
 }
 module.exports ={
   allPhotos,

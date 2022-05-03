@@ -1,9 +1,12 @@
 const LOAD = 'photos/LOAD';
+const LOAD_ONE = 'photos/LOAD_ONE'
 
 const load = photos =>({
   type: LOAD,
   photos
 });
+
+
 
 export const getAllPhotos = async dispatch =>{
   const res = await fetch('/api/photos');
@@ -13,6 +16,8 @@ export const getAllPhotos = async dispatch =>{
     dispatch(load(photos))
   }
 }
+
+
 
 const initialState = { list:[] };
 
