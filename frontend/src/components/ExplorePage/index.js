@@ -1,16 +1,16 @@
 import React, {useEffect, useState} from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams, Route, NavLink} from "react-router-dom";
+import { NavLink} from "react-router-dom";
 
 import { getAllImages } from "../../store/images";
 import './exploreImages.css';
 
 function ExplorePage(){
-  const {photoId} = useParams();
+
   const dispatch = useDispatch();
 
-  const images = useSelector(state => state.list);
-  console.log(images)
+  const imagesObj = useSelector(state => state.images);
+  const images = Object.values(imagesObj);
 
   useEffect(() =>{
     dispatch(getAllImages());
@@ -22,7 +22,7 @@ function ExplorePage(){
   return(
     <div className='explore-image-container'>
       {images?.map(image=>{
-        <img src={image?.imageUrl} />
+        <img src={image.imageUrl} />
       })}
     </div>
   )

@@ -28,10 +28,7 @@ function App() {
             <ExplorePage />
           </Route>
           <Route path="/explore">
-            {/* <ExplorePage /> */}
-            <div>
-              Hello
-            </div>
+            <ExplorePage />
           </Route>
           <Route path="/login">
             <LoginFormPage />

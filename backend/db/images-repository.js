@@ -63,7 +63,7 @@ async function deleteImage(imageId){
       id: image.id
     }
   })
-  return image.id
+  return image.id;
 }
 module.exports ={
   allImages,

@@ -27,9 +27,9 @@ const edit = image =>({
   image
 })
 
-const remove = image =>({
+const remove = imageId =>({
   type: REMOVE,
-  image
+  imageId
 })
 
 
@@ -68,7 +68,8 @@ export const createImage = payload => async dispatch =>{
 
 export const editImage = payload => async dispatch =>{
   const body = JSON.stringify(payload);
-  const res = await csrfFetch(`/api/images/${payload.id}/edit`, {
+  const imageId = payload.id;
+  const res = await csrfFetch(`/api/images/${imageId}/edit`, {
     method: "PUT",
     body,
   });
@@ -82,14 +83,15 @@ export const editImage = payload => async dispatch =>{
 }
 
 export const deleteImage = payload => async dispatch =>{
-  const res = await csrfFetch(`/api/images/${payload.id}/delete`, {
+  const imageId = payload.id;
+  const res = await csrfFetch(`/api/images/${imageId}/delete`, {
     method: "DELETE",
   });
 
   if(res.ok){
-    const image = await res.json();
-    dispatch(remove(image));
-    return image;
+    const imageId = await res.json();
+    dispatch(remove(imageId));
+    return imageId;
   }
 }
 
@@ -121,7 +123,7 @@ const imagesReducer = (state = initialState, action) =>{
         }
       case REMOVE:
         let newState = {...state}
-        delete newState[action.image.id];
+        delete newState[action.imageId];
         return newState;
     default:
       return state;
