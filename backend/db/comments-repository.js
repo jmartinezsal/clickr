@@ -6,10 +6,11 @@ async function allComments(){
 
 async function allCommentsInImage(imageId){
   return await Comment.findAll({
+    include: User,
     where: {
       imageId
     },
-    order:[['createdAt', 'DESC']]
+    order:[['createdAt', 'ASC']]
   })
 }
 

@@ -8,7 +8,7 @@ const REMOVE = 'comments/REMOVE';
 
 
 const loadAll = comments =>({
-  type: LOAD,
+  type: LOAD_COMMENTS,
   comments
 });
 
@@ -33,6 +33,15 @@ const remove = commentId =>({
   commentId
 })
 
+export const getAllComments = () => async dispatch =>{
+  const res = await fetch('/api/comments');
+
+  if(res.ok){
+    const comments = await res.json();
+
+    dispatch(loadAll(comments));
+  }
+}
 
 export const getImageComments = (imageId) => async dispatch =>{
   const res = await fetch(`/api/images/${imageId}/comments`);
@@ -77,7 +86,7 @@ export const editComment = payload => async dispatch =>{
 
 }
 
-export const deletecomment = payload => async dispatch =>{
+export const deleteComment = payload => async dispatch =>{
   const commentId = payload.id;
   const res = await csrfFetch(`/api/comments/${commentId}/delete`, {
     method: "DELETE",
@@ -94,14 +103,14 @@ const initialState = { };
 
 const commentsReducer = (state = initialState, action) =>{
   switch(action.type){
-    case LOAD:
-      const allcomments = {};
+    case LOAD_COMMENTS:
+      const allComments = {};
       action.comments.forEach(comment => {
-        allcomments[comment.id] = comment
+        allComments[comment.id] = comment;
       });
       return {
         ...state,
-        ...allcomments
+        ...allComments
       }
     case CREATE:
         if(!state[action.comment.id]){
