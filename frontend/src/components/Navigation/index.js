@@ -24,9 +24,9 @@ function Navigation({ isLoaded }){
   return (
     <div className="nav-bar">
       <div className='nav-bar-left'>
-        <NavLink exact to="/">
+        {/* <NavLink exact to="/">
           <img src='/images/logo.svg' alt="logo"/>
-        </NavLink>
+        </NavLink> */}
       </div>
       <ul className= "nav-bar-right">
 
