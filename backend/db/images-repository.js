@@ -1,13 +1,13 @@
 const { Image, User, Comment } = require("./models");
 
-async function allPhotos() {
+async function allImages() {
   return await Image.findAll({
     order:[['createdAt', 'DESC']]
   });
 }
 
-async function findOnePhoto(id) {
-  let image = await Image.findByPk(id, {
+async function findOneImage(imageId) {
+  let image = await Image.findByPk(imageId, {
     include: [{
       model: User,
       attributes:["username"]
@@ -17,26 +17,28 @@ async function findOnePhoto(id) {
       order:[['createdAt', 'DESC']]
     }],
   });
+
+
   return image;
 }
 
-async function createPhoto(details){
+async function createImage(details){
   const {imageUrl, title, description, userId } = details;
-
   let image = await Image.create({
     imageUrl,
     title,
     description,
     userId
   })
-  return image.id;
+  return image;
 }
 
-async function updatePhoto(details, id){
+async function updateImage(details){
 
-  const {imageUrl, title, description } = details;
+  const {imageUrl, title, description, userId, id } = details;
 
-  await Image.update( details, {
+  await Image.update( {imageUrl,title,description, userId},
+     {
       where: {id},
       returning: true,
       plain: true
@@ -44,21 +46,29 @@ async function updatePhoto(details, id){
   return id;
 }
 
-async function deletePhoto(id){
-  const image = await Image.findByPk(id);
+async function deleteImage(imageId){
+  const image = await Image.findByPk(imageId);
+  const comments = await Comment.findAll({
+    where:{
+      imageId
+    }
+  });
+
   if(!image) throw new Error("Cannot find the image");
+
+  comments.forEach(async comment => await comment.destroy())
 
   await Image.destroy({
     where:{
       id: image.id
     }
   })
-  return image.id
+  return image.id;
 }
 module.exports ={
-  allPhotos,
-  findOnePhoto,
-  createPhoto,
-  updatePhoto,
-  deletePhoto
+  allImages,
+  findOneImage,
+  createImage,
+  updateImage,
+  deleteImage
 }
