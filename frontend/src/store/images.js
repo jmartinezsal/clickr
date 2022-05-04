@@ -100,13 +100,13 @@ const initialState = { };
 const imagesReducer = (state = initialState, action) =>{
   switch(action.type){
     case LOAD:
-      const allimages = {};
+      const allImages = {};
       action.images.forEach(image => {
-        allimages[image.id] = image
+        allImages[image.id] = image
       });
       return {
         ...state,
-        ...allimages
+        ...allImages
       }
     case CREATE:
         if(!state[action.image.id]){

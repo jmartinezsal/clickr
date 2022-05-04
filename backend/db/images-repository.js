@@ -11,10 +11,6 @@ async function findOneImage(imageId) {
     include: [{
       model: User,
       attributes:["username"]
-    },
-    {
-      model: Comment,
-      order:[['createdAt', 'DESC']]
     }],
   });
 
