@@ -1,10 +1,16 @@
 import {csrfFetch} from './csrf'
 
 const LOAD = 'comments/LOAD';
+const LOAD_COMMENTS = 'comments/LOAD_COMMENTS'
 const CREATE = 'comments/CREATE';
 const EDIT = 'comments/EDIT';
 const REMOVE = 'comments/REMOVE';
 
+
+const loadAll = comments =>({
+  type: LOAD,
+  comments
+});
 
 const load = comments =>({
   type: LOAD,
@@ -28,8 +34,8 @@ const remove = commentId =>({
 })
 
 
-export const getAllComments = () => async dispatch =>{
-  const res = await fetch('/api/comments');
+export const getImageComments = (imageId) => async dispatch =>{
+  const res = await fetch(`/api/images/${imageId}/comments`);
 
   if(res.ok){
     const comments = await res.json();
@@ -37,18 +43,11 @@ export const getAllComments = () => async dispatch =>{
   }
 }
 
-export const getOnecomment = commentId => async dispatch => {
-  const res = await fetch(`/api/comments/${commentId}`);
 
-  if(res.ok){
-    const comment = await res.json();
-    dispatch(loadOne(comment))
-  }
-}
-
-export const createcomment = payload => async dispatch =>{
+export const createComment = payload => async dispatch =>{
+  const imageId = payload.imageId;
   const body = JSON.stringify(payload);
-  const res = await csrfFetch('/api/comments/upload', {
+  const res = await csrfFetch(`/api/comments/${imageId}`, {
     method: "POST",
     body,
   });
@@ -64,6 +63,7 @@ export const createcomment = payload => async dispatch =>{
 export const editComment = payload => async dispatch =>{
   const body = JSON.stringify(payload);
   const commentId = payload.id;
+
   const res = await csrfFetch(`/api/comments/${commentId}/edit`, {
     method: "PUT",
     body,

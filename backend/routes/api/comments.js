@@ -3,7 +3,7 @@ const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 
 const { requireAuth } = require('../../utils/auth');
-const { allCommentInImage, createComment, updateComment, deleteComment }= require('../../db/comments-repository');
+const { allComments, createComment, updateComment, deleteComment }= require('../../db/comments-repository');
 const { handleValidationErrors } = require('../../utils/validation');
 
 const commentsValidator = [
@@ -15,13 +15,11 @@ const commentsValidator = [
 
 const router = express.Router();
 
-router.get('/:imageId(\\d+)', asyncHandler(async (req, res) =>{
-  let imageId = req.params.imageId;
 
-  const comments = await allCommentInImage(imageId);
+router.get('/', asyncHandler(async (req, res) =>{
+  const comments = await allComments();
   return res.json(comments);
-}));
-
+}))
 
 router.post('/:imageId(\\d+)', requireAuth, commentsValidator, asyncHandler(async (req, res) =>{
   const userId = parseInt(req.user.id, 10);

@@ -4,6 +4,7 @@ const { check } = require('express-validator');
 
 const { requireAuth } = require('../../utils/auth');
 const {allImages, findOneImage, createImage, updateImage, deleteImage} = require('../../db/images-repository');
+const { allCommentsInImage } = require('../../db/comments-repository');
 const { handleValidationErrors } = require('../../utils/validation');
 
 const imageValidators = [
@@ -28,6 +29,13 @@ router.get('/:imageId(\\d+)', asyncHandler(async(req,res) =>{
   const image = await findOneImage(req.params.imageId);
   return res.json(image)
 }))
+
+router.get('/:imageId(\\d+)/comments', asyncHandler(async (req, res) =>{
+  let imageId = req.params.imageId;
+
+  const comments = await allCommentsInImage(imageId);
+  return res.json(comments);
+}));
 
 router.post('/upload', requireAuth, imageValidators, asyncHandler(async (req, res) =>{
   const userId = parseInt(req.user.id, 10);

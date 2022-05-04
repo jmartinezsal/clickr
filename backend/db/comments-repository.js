@@ -1,6 +1,10 @@
 const { Image, User, Comment } = require("./models");
 
-async function allCommentInImage(imageId){
+async function allComments(){
+  return await Comment.findAll();
+}
+
+async function allCommentsInImage(imageId){
   return await Comment.findAll({
     where: {
       imageId
@@ -43,8 +47,9 @@ async function deleteComment(commentId){
 }
 
 module.exports = {
-  allCommentInImage,
+  allCommentsInImage,
   createComment,
   updateComment,
-  deleteComment
+  deleteComment,
+  allComments
 }
