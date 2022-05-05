@@ -41,6 +41,9 @@ function App() {
           <Route path="/upload">
             <UploadImagePage />
           </Route>
+          <Route path="/images/:imageId">
+            
+          </Route>
         </Switch>
       )}
       <Footer />

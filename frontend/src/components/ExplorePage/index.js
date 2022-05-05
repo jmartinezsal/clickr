@@ -8,7 +8,6 @@ import './exploreImages.css';
 function ExplorePage(){
   const dispatch = useDispatch();
 
-
   const imagesObj = useSelector(state => state.images);
   const images = Object.values(imagesObj);
 
@@ -16,10 +15,7 @@ function ExplorePage(){
     dispatch(getAllImages());
   }, [dispatch])
 
-  const imgClassName = ['small', 'big', 'wide'];
-  const randomClassName = (imgClassName) =>{
-    
-  }
+  const imgClassNames = ['small', 'big', 'tall', 'wide'];
 
   if(!images) return null;
 
@@ -28,8 +24,9 @@ function ExplorePage(){
     <>
     <h2>Explore</h2>
     <div className='explore-image-container'>
-
-      {images.map(image =><img class={randomClassName} src={image.imageUrl} alt={image.userId}/>)}
+      {images?.map((image,index) =><img class={imgClassNames[index % imgClassNames.length]}
+      src={image.imageUrl} alt={image.userId}/>)}
+      
     </div>
     </>
   )
