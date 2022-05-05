@@ -18,14 +18,11 @@
 .footer-left{
   display: flex;
   flex-direction: column;
+
 }
 
 .footer-left a{
   color: white;
-  justify-self: center;
-}
-
-.footer-right * {
-  display: inline;
-  float: right;
+  display: flex;
+  align-items: center;
 }

@@ -22,24 +22,27 @@ function App() {
 
   return (
     <>
-      <Navigation isLoaded={isLoaded} />
+      <Navigation isLoaded={isLoaded} path={window.location.pathname} />
 
       {isLoaded && (
         <Switch>
           <Route exact path="/">
             <SplashPage />
           </Route>
-          <Route path="/explore">
-            <ExplorePage />
+          <Route path="/signup">
+            <SignupFormPage />
           </Route>
           <Route path="/login">
             <LoginFormPage />
           </Route>
+          <Route path="/explore">
+            <ExplorePage />
+          </Route>
           <Route path="/upload">
             <UploadImagePage />
           </Route>
-          <Route path="/signup">
-            <SignupFormPage />
+          <Route path="/images/:imageId">
+            
           </Route>
         </Switch>
       )}

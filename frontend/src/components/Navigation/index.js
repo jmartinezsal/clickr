@@ -1,12 +1,17 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 
-function Navigation({ isLoaded }){
+function Navigation({ isLoaded, path }){
   const sessionUser = useSelector(state => state.session.user);
+  const pathArr = ['/', '/login', '/signup'];
+  const [nav, setNav] = useState(true);
 
+  console.log(path)
+
+  //Checks if the user is logged and will present the appropiate links
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
@@ -20,21 +25,40 @@ function Navigation({ isLoaded }){
       </>
     );
   }
+  useEffect(()=>{
+    if(!pathArr.includes(path))
+    {
+      setNav(false)
+    } else {
+      setNav(true)
+    }
+  }, [])
+
+  let uploadHandle = () =>{
+    if(!sessionUser){
+      <NavLink to="/login"></NavLink>
+    } else {
+      <NavLink to="/upload"></NavLink>
+    }
+  }
 
   return (
     <header>
-
-    <div className="nav-bar">
+    <div className={nav ? "nav-bar" : "nav-bar-change"}>
       <div className='nav-bar-left'>
         <NavLink exact to="/">
           <img src='/images/logo3.svg' alt="logo"/>
+        </NavLink>
+        <NavLink to="/explore">
+          Explore
         </NavLink>
       </div>
       <div className="nav-bar-center">
 
       </div>
       <div className= "nav-bar-right">
-          {isLoaded && sessionLinks}
+          <i onClick={uploadHandle} class="fa-solid fa-cloud-arrow-up fa-2xl"></i>
+      {isLoaded && sessionLinks}
       </div>
     </div>
     </header>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, NavLink } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import './signUpForm.css'
 
@@ -71,7 +71,7 @@ function SignupFormPage() {
       </form>
       <div className="auth-form-btm" >
           <hr size="1" width="300rem" color="lightGrey"/>
-          <p>Already a Clickr member? <a href="/login">Log in here.</a></p>
+          <p>Already a Clickr member? <NavLink to="/login">Log in here.</NavLink></p>
         </div>
     </div>
   </div>
