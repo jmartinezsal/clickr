@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 import {createImage} from '../../store/images';
-import './UploadImagePage.css';
+import './uploadImagePage.css';
 
 function UploadImagePage(){
   const dispatch = useDispatch();
@@ -56,7 +56,7 @@ function UploadImagePage(){
         <input type="Description"
         value={description}
         onChange={e => setDescription(e.target.value)}
-      
+
         />
       </label>
       <button type="submit">Create</button>
