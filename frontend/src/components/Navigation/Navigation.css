@@ -1,11 +1,14 @@
 .nav-bar {
-  background-color: rgba(0,0,0, 0.25);
-  height: 50px;
+  background-color: rgba(0, 0, 0, 0.9);
+  height: 7.5vh;
   display: flex;
   width: 100%;
   padding: 0px 40px;
   align-items: center;
+  justify-content: space-between;
   z-index: 2;
+  box-shadow: 0 0 10px 0 black;
+ 
 }
 
 .nav-bar a {
@@ -13,12 +16,14 @@
 }
 
 .nav-bar-left{
-  align-self: center;
-  justify-content: center;
+  display: flex;
+
+
 }
 
 img{
-  width: 175px;
+  width: 150px;
+  height: 10vh;
 }
 
 
@@ -29,6 +34,17 @@ img{
 #signup-btn{
   color: #000;
   background-color: white;
-  padding: 10px 15px;
+  padding: 7.5px 15px;
   border-radius: 5px;
+}
+
+.nav-bar-right {
+  display: flex;
+  align-items: center;
+  padding-right: 80px;
+  gap: 20px;
+}
+
+.nav-bar:hover{
+
 }
