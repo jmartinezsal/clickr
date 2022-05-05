@@ -10,9 +10,20 @@
   box-shadow: 0 0 10px 0 black;
 }
 
+.nav-bar-change{
+  background-color: rgba(0, 0, 0);
+  height: 7.5vh;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 0 10px 0 black;
+}
+
 .nav-bar-left{
   display: flex;
   padding-left: 20px;
+  align-items: center;
 }
 
 img{
@@ -41,4 +52,13 @@ img{
 
 .nav-bar:hover{
 
+}
+
+.fa-cloud-arrow-up{
+  color: white;
+
+}
+
+.fa-cloud-arrow-up:hover{
+  cursor: pointer;
 }

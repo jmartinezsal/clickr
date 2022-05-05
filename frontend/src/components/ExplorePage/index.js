@@ -6,8 +6,8 @@ import { getAllImages } from "../../store/images";
 import './exploreImages.css';
 
 function ExplorePage(){
-
   const dispatch = useDispatch();
+
 
   const imagesObj = useSelector(state => state.images);
   const images = Object.values(imagesObj);
@@ -16,14 +16,22 @@ function ExplorePage(){
     dispatch(getAllImages());
   }, [dispatch])
 
+  const imgClassName = ['small', 'big', 'wide'];
+  const randomClassName = (imgClassName) =>{
+    
+  }
+
   if(!images) return null;
 
 
   return(
+    <>
+    <h2>Explore</h2>
     <div className='explore-image-container'>
-      
-      {images.map(image =><img src={image.imageUrl} alt={image.userId}/>)}
+
+      {images.map(image =><img class={randomClassName} src={image.imageUrl} alt={image.userId}/>)}
     </div>
+    </>
   )
 
 }
