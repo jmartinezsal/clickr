@@ -21,7 +21,7 @@ function ExplorePage(){
 
   return(
     <div className='explore-image-container'>
-      {images?.map(image=>{
+      {images.map(image =>{
         <img src={image.imageUrl} />
       })}
     </div>

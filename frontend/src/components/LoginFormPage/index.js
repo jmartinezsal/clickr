@@ -27,33 +27,41 @@ function LoginFormPage(){
   }
 
   return(
-  <div className="formContainer">
-    <h2>Login Here</h2>
-    <form onSubmit={handleSubmit}>
-      <ul>
-        {errors.map((error, idx) =>
-        <li key={idx}>{error}</li>
-        )}
-      </ul>
-      <label>
-          Username or Email
-          <input type="text"
-          value={credential}
-          name="credential"
-          onChange={e => setCredential(e.target.value)}
+  <div className="auth-form-page">
+    <div className="auth-form-container">
+      <div className="auth-form-top" >
+        <img src="/images/brand.svg" alt="brand"/>
+          <h2>Log in to Clickr</h2>
+      </div>
+      <form onSubmit={handleSubmit}>
+        <ul>
+          {errors.map((error, idx) =>
+          <li key={idx}>{error}</li>
+          )}
+        </ul>
+        <div className="input">
+            <input type="text"
+            placeholder=' Username or Email'
+            value={credential}
+            name="credential"
+            onChange={e => setCredential(e.target.value)}
+            required
+            />
+          <input type="password"
+          placeholder='Password'
+          value={password}
+          onChange={e => setPassword(e.target.value)}
           required
           />
-      </label>
-      <label>
-        Password
-        <input type="password"
-        value={password}
-        onChange={e => setPassword(e.target.value)}
-        required
-        />
-      </label>
-      <button type="submit">Log In</button>
-    </form>
+        </div>
+
+        <button type="submit">Sign In</button>
+      </form>
+      <div className="auth-form-btm" >
+        <hr size="1" width="300rem" color="lightGrey"/>
+        <p>Not a Clickr member? <a href="/signup">Sign up here.</a></p>
+      </div>
+    </div>
   </div>
   )
 };

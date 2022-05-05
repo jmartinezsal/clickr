@@ -10,6 +10,7 @@ import ExplorePage from "./components/ExplorePage"
 import SignupFormPage from "./components/SignupFormPage";
 import Navigation from "./components/Navigation";
 import UploadImagePage from './components/UploadImage';
+import Footer from './components/Footer';
 
 function App() {
   const dispatch = useDispatch();
@@ -42,6 +43,7 @@ function App() {
           </Route>
         </Switch>
       )}
+      <Footer />
     </>
   );
 }
