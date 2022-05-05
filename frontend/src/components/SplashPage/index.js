@@ -31,10 +31,13 @@ function SplashPage(){
   return(
     <>
       <div className="slideshow-container">
-        <img src={backgroundImg} />
+        <img className="img-slideshow" src={backgroundImg} />
         <div className='splash-header'>
           <h1> Click to find your inspiration. </h1>
           <h3>Join the Clicker community, home to a couple of images and a couple of people.</h3>
+          <NavLink className="splash-signup-link btn" to='/signup'>
+            Sign up here
+          </NavLink>
         </div>
       </div>
     </>

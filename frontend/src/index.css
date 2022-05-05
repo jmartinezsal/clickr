@@ -13,3 +13,16 @@
   display: flex;
   flex-direction: column;
 }
+
+a {
+  text-decoration: none;
+
+}
+
+btn{
+  transition: size 1s ease-in-out;
+}
+
+btn:hover {
+  size: 1.2em;
+}

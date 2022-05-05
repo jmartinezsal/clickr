@@ -1,13 +1,35 @@
-.formContainer{
+.auth-form-page{
+  background-image: url("../../../public/images/deva-darshan.jpg") ;
+  height: 95vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.auth-form-container{
   border: 1px solid black;
-  padding: 20px;
-  border-radius: 10px;
+  background-color: white;
+  padding: 1.5em;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 18em;
+  height: 25em;
 
 }
 
-.formContainer > label{
-  display: block;
+
+.auth-form-container input{
+  width:100%;
 }
-.formContainer input{
-  width:40%;
+
+
+
+.auth-form-top{
+
 }
