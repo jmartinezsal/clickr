@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { FileUploader } from "react-drag-drop-files";
+
 
 import {createImage} from '../../store/images';
 import './uploadImagePage.css';
@@ -14,9 +16,12 @@ function UploadImagePage(){
   const [description, setDescription] = useState("");
   const [errors, setErrors] = useState([]);
 
+
   // if(sessionUser) return(
   //   <Redirect to />
   // )
+
+
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -36,12 +41,14 @@ function UploadImagePage(){
       </ul>
       <label>
           Image URL:
-          <input type="text"
+          <input
+          type="text"
           value={imageUrl}
           name="imageUrl"
           onChange={e => setImageUrl(e.target.value)}
           required
           />
+
       </label>
       <label>
         Title

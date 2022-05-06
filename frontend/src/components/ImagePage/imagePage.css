@@ -1,0 +1,36 @@
+.image-page-container{
+
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+
+
+}
+
+.image-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#212124;
+  height: 75vh;
+  width: 100%;
+}
+
+
+.image-page-img{
+  max-width: 75%;
+  max-height: 60vh;
+
+}
+
+.user-actions {
+  display: flex;
+  margin-bottom: 1.5em;
+  color: white;
+  align-self: flex-end;
+
+}
+
+.user-actions *{
+  padding-right: 20px;
+}

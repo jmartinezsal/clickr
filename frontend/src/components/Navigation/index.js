@@ -9,8 +9,6 @@ function Navigation({ isLoaded, path }){
   const pathArr = ['/', '/login', '/signup'];
   const [nav, setNav] = useState(true);
 
-  console.log(path)
-
   //Checks if the user is logged and will present the appropiate links
   let sessionLinks;
   if (sessionUser) {
@@ -47,7 +45,7 @@ function Navigation({ isLoaded, path }){
     <div className={nav ? "nav-bar" : "nav-bar-change"}>
       <div className='nav-bar-left'>
         <NavLink exact to="/">
-          <img src='/images/logo3.svg' alt="logo"/>
+          <img className="logo-img" src='/images/logo3.svg' alt="logo"/>
         </NavLink>
         <NavLink to="/explore">
           Explore
