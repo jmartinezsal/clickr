@@ -1,23 +1,34 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
+import { useParams } from 'react-router-dom';
 
-import {getAllImages} from '../../store/images'
+import { getOneImage } from '../../store/images'
 
 
 function ImagePage() {
   const dispatch = useDispatch();
+  const { imageId } = useParams();
 
-  const imagesObj = useSelector(state => state.images);
-  const images = Object.values(imagesObj);
+  const image = useSelector(state => state.images[imageId])
 
   useEffect(() =>{
-    dispatch(getAllImages());
-  }, [dispatch])
+    dispatch(getOneImage(imageId));
+  }, [imageId])
+
+  if(!image){
+    return null;
+  }
+
 
   return(
-    <>
+    <div className="image-page-container">
+       <div className="image-container">
+        <img className="image-page-img" src={image?.imageUrl} alt={image.id} />
 
-    </>
+      </div>
+    </div>
+
+
   )
 }
 

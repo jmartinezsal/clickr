@@ -8,6 +8,7 @@ import SplashPage from "./components/SplashPage";
 import LoginFormPage from "./components/LoginFormPage";
 import ExplorePage from "./components/ExplorePage"
 import SignupFormPage from "./components/SignupFormPage";
+import ImagePage from "./components/ImagePage/index.js";
 import Navigation from "./components/Navigation";
 import UploadImagePage from './components/UploadImage';
 import Footer from './components/Footer';
@@ -22,7 +23,7 @@ function App() {
 
   return (
     <>
-      <Navigation isLoaded={isLoaded} path={window.location.pathname} />
+      <Navigation isLoaded={isLoaded}  path={window.location.pathname}/>
 
       {isLoaded && (
         <Switch>
@@ -41,8 +42,11 @@ function App() {
           <Route path="/upload">
             <UploadImagePage />
           </Route>
-          <Route path="/images/:imageId">
-            
+          <Route path="/images/:imageId" >
+            <ImagePage />
+          </Route>
+          <Route>
+            Page Not found
           </Route>
         </Switch>
       )}

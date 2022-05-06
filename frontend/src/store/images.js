@@ -46,8 +46,8 @@ export const getOneImage = imageId => async dispatch => {
   const res = await fetch(`/api/images/${imageId}`);
 
   if(res.ok){
-    const image = await res.json();
-    dispatch(loadOne(image))
+    const details = await res.json();
+    dispatch(loadOne(details))
   }
 }
 
@@ -108,6 +108,23 @@ const imagesReducer = (state = initialState, action) =>{
         ...state,
         ...allImages
       }
+    case LOAD_ONE:
+      if (!state[action.image.id]) {
+        const newState = {
+          ...state,
+          [action.image.id]: action.image
+        };
+        const newStateArr = Object.values(newState);;
+        const imageList = newStateArr.map(id => newState[id]);
+        imageList.push(action.pokemon);
+        return newState;
+      } return {
+        ...state,
+        [action.image.id]: {
+          ...state[action.image.id],
+          ...action.image
+        }
+      };
     case CREATE:
         if(!state[action.image.id]){
           const newState = {

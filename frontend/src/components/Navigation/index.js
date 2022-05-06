@@ -9,8 +9,6 @@ function Navigation({ isLoaded, path }){
   const pathArr = ['/', '/login', '/signup'];
   const [nav, setNav] = useState(true);
 
-  console.log(path)
-
   //Checks if the user is logged and will present the appropiate links
   let sessionLinks;
   if (sessionUser) {

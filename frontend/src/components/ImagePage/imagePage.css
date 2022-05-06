@@ -1,0 +1,19 @@
+.image-page-container{
+  display: flex;
+
+  height: 100%;
+  width: 100%;
+  background-color: black;
+
+}
+
+.image-container{
+  background-color: rgb(0, 0 , 0);
+  height: 50vh;
+  width: 100%;
+}
+
+
+.image-page-img{
+  display: flex;
+}
