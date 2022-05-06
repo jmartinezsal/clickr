@@ -5,8 +5,7 @@ import {getImageComments, createComment, deleteComment, editComment} from '../..
 
 function CommentSection({sessionUser, imageId}){
   const dispatch = useDispatch();
-  // const commentsObj = useSelector(state =>  )
-
+  const comments = useSelector(state => state.comments )
 
   useEffect(() =>{
     dispatch(getImageComments(imageId));
@@ -15,7 +14,13 @@ function CommentSection({sessionUser, imageId}){
 
   return(
     <div className="comment-divider">
+      {comments[imageId]?.map(comment => (
+        <div className="comment">
+          {comment?.User.username}
+          {comment?.comment}
+        </div>
 
+       ))}
 
     </div>
   )

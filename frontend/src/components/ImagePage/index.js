@@ -26,7 +26,7 @@ function ImagePage() {
   return(
     <div className="image-page-container">
        <div className="image-container">
-        <img className="image-page-img" src={image?.imageUrl} alt={image?.id} />
+        <img className="image-page-img" src={image?.imageUrl} alt={image.id} />
         {sessionUser &&
           <ImageActions sessionUser={sessionUser} image={image} />
         }

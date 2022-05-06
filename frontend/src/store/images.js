@@ -116,7 +116,7 @@ const imagesReducer = (state = initialState, action) =>{
         };
         const newStateArr = Object.values(newState);;
         const imageList = newStateArr.map(id => newState[id]);
-        imageList.push(action.pokemon);
+        imageList.push(action.image);
         return newState;
       } return {
         ...state,
@@ -132,6 +132,8 @@ const imagesReducer = (state = initialState, action) =>{
             [action.image.id]: action.image
           }
           return newState;
+        } else{
+          return state;
         }
       case EDIT:
         return {

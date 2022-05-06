@@ -1,10 +1,7 @@
 .image-page-container{
-
   height: 100%;
   width: 100%;
   overflow-y: scroll;
-
-
 }
 
 .image-container{
@@ -18,17 +15,17 @@
 
 
 .image-page-img{
-  max-width: 75%;
+  max-width: 80%;
   max-height: 60vh;
+  margin-top: 2.5%;
 
 }
 
 .user-actions {
   display: flex;
-  margin-bottom: 1.5em;
+  margin-bottom: 1.2em;
   color: white;
   align-self: flex-end;
-
 }
 
 .user-actions *{

@@ -1,14 +1,14 @@
 import {csrfFetch} from './csrf'
 
 const LOAD = 'comments/LOAD';
-const LOAD_COMMENTS = 'comments/LOAD_COMMENTS'
+const LOAD_ALL_COMMENTS = 'comments/LOAD_ALL_COMMENTS'
 const CREATE = 'comments/CREATE';
 const EDIT = 'comments/EDIT';
 const REMOVE = 'comments/REMOVE';
 
 
 const loadAll = comments =>({
-  type: LOAD_COMMENTS,
+  type: LOAD_ALL_COMMENTS,
   comments
 });
 
@@ -103,7 +103,7 @@ const initialState = { };
 
 const commentsReducer = (state = initialState, action) =>{
   switch(action.type){
-    case LOAD_COMMENTS:
+    case LOAD_ALL_COMMENTS:
       const allComments = {};
       action.comments.forEach(comment => {
         allComments[comment.id] = comment;
@@ -112,6 +112,21 @@ const commentsReducer = (state = initialState, action) =>{
         ...state,
         ...allComments
       }
+    case LOAD:
+      let imageId = action.comments[0].imageId
+        if (!state[action.comments.imageId]) {
+          const newState = {
+            ...state,
+            [imageId]: action.comments
+          };
+          return newState;
+        } return {
+          ...state,
+          [imageId]: {
+            ...state[action.comments.id],
+            ...action.comment
+          }
+        }
     case CREATE:
         if(!state[action.comment.id]){
           const newState = {
@@ -119,6 +134,8 @@ const commentsReducer = (state = initialState, action) =>{
             [action.comment.id]: action.comment
           }
           return newState;
+        } else {
+          return state;
         }
       case EDIT:
         return {
