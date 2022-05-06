@@ -62,3 +62,7 @@
 .fa-cloud-arrow-up:hover{
   cursor: pointer;
 }
+
+.profile-dropdown{
+  color: white;
+}

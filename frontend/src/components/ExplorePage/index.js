@@ -29,9 +29,9 @@ function ExplorePage(){
       <NavLink to={`/images/${image.id}`}>
         <img class={imgClassNames[index % imgClassNames.length]}
         src={image.imageUrl} alt={image.userId}/>
-        <div className="hide">
+        {/* <div className="hide">
           {image.title}
-        </div>
+        </div> */}
       </NavLink>
       ))}
 

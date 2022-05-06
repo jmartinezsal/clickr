@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import { getOneImage } from '../../store/images';
 import ImageActions from './ImageActions';
+import CommentSection from '../CommentSection';
 
 import './imagePage.css'
 
@@ -25,19 +26,16 @@ function ImagePage() {
   return(
     <div className="image-page-container">
        <div className="image-container">
-        <img className="image-page-img" src={image?.imageUrl} alt={image.id} />
+        <img className="image-page-img" src={image?.imageUrl} alt={image?.id} />
         {sessionUser &&
           <ImageActions sessionUser={sessionUser} image={image} />
         }
       </div>
-      {image.User.username}
-      <h2>{image.title}</h2>
-      <p>{image.description}</p>
+      {image?.User?.username}
+      <h2>{image?.title}</h2>
+      <p>{image?.description}</p>
 
-      <div className="comment-divider">
-
-        
-      </div>
+      <CommentSection sessionUser={sessionUser} imageId={image?.id} />
     </div>
 
 

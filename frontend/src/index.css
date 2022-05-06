@@ -20,11 +20,11 @@ a {
 }
 
 btn{
-  transition: size 1s ease-in-out;
+  transition: transform 1s ease-in-out;
 }
 
 btn:hover {
-  size: 1.2em;
+  transform: scale(1.2em);
 }
 
 i{

@@ -16,15 +16,16 @@ import Footer from './components/Footer';
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+  const [path, setPath] = useState('')
 
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
-  }, [dispatch]);
+    setPath(window.location.pathname)
+  }, [dispatch, path]);
 
   return (
     <>
-      <Navigation isLoaded={isLoaded}  path={window.location.pathname}/>
-
+      <Navigation isLoaded={isLoaded}  path={path}/>
       {isLoaded && (
         <Switch>
           <Route exact path="/">

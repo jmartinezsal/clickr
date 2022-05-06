@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import { FileUploader } from "react-drag-drop-files";
 
 
@@ -9,6 +9,7 @@ import './uploadImagePage.css';
 
 function UploadImagePage(){
   const dispatch = useDispatch();
+  const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
 
   const [imageUrl, setImageUrl] = useState("");
@@ -27,47 +28,57 @@ function UploadImagePage(){
     e.preventDefault();
     setErrors([]);
     dispatch(createImage({imageUrl, title, description}))
-    return;
+      .catch(async (res) => {
+      const data = await res.json();
+      if (data && data.errors){
+        setErrors(data.errors);
+      }else {
+        history.push('/');
+      }
+    });
   }
 
   return(
-  <div className="image-form">
-    <h2>Image Form</h2>
-    <form onSubmit={handleSubmit}>
-      <ul>
-        {errors.map((error, idx) =>
-        <li key={idx}>{error}</li>
-        )}
-      </ul>
-      <label>
-          Image URL:
-          <input
-          type="text"
-          value={imageUrl}
-          name="imageUrl"
-          onChange={e => setImageUrl(e.target.value)}
-          required
+  <div className="image-form-page">
+    <div className=" auth-form-container">
+    <img className="auth-logo" src="/images/brand.svg" alt="brand"/>
+      <h2>Upload an image</h2>
+      <form onSubmit={handleSubmit}>
+        <ul>
+          {errors.map((error, idx) =>
+          <li key={idx}>{error}</li>
+          )}
+        </ul>
+        <label>
+            Image URL:
+            <input
+            type="text"
+            value={imageUrl}
+            name="imageUrl"
+            onChange={e => setImageUrl(e.target.value)}
+
+            />
+
+        </label>
+        <label>
+          Title
+          <input type="title"
+          value={title}
+          onChange={e => setTitle(e.target.value)}
+
           />
+        </label>
+        <label>
+          Description:
+          <input type="Description"
+          value={description}
+          onChange={e => setDescription(e.target.value)}
 
-      </label>
-      <label>
-        Title
-        <input type="title"
-        value={title}
-        onChange={e => setTitle(e.target.value)}
-        required
-        />
-      </label>
-      <label>
-        Description:
-        <input type="Description"
-        value={description}
-        onChange={e => setDescription(e.target.value)}
-
-        />
-      </label>
-      <button type="submit">Create</button>
-    </form>
+          />
+        </label>
+        <button type="submit">Create</button>
+      </form>
+    </div>
   </div>
   )
 };

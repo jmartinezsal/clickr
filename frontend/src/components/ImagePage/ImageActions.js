@@ -11,7 +11,7 @@ function ImageActions({sessionUser, image}){
   const imageId = image.id;
   const handleDelete = e => {
     e.preventDefault();
-    history.push('/');
+    history.push('/explore');
     return dispatch(deleteImage(imageId));
   }
 

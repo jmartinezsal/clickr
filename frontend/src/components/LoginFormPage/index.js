@@ -30,7 +30,7 @@ function LoginFormPage(){
   <div className="auth-form-page">
     <div className="auth-form-container">
       <div className="auth-form-top" >
-        <img src="/images/brand.svg" alt="brand"/>
+        <img className="auth-logo" src="/images/brand.svg" alt="brand"/>
           <h2>Log in to Clickr</h2>
       </div>
       <form onSubmit={handleSubmit}>
