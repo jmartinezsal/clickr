@@ -26,3 +26,7 @@ btn{
 btn:hover {
   size: 1.2em;
 }
+
+i{
+  cursor: pointer;
+}

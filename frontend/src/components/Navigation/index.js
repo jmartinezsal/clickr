@@ -45,7 +45,7 @@ function Navigation({ isLoaded, path }){
     <div className={nav ? "nav-bar" : "nav-bar-change"}>
       <div className='nav-bar-left'>
         <NavLink exact to="/">
-          <img src='/images/logo3.svg' alt="logo"/>
+          <img className="logo-img" src='/images/logo3.svg' alt="logo"/>
         </NavLink>
         <NavLink to="/explore">
           Explore

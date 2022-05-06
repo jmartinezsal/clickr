@@ -2,14 +2,17 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import { getOneImage } from '../../store/images'
+import { getOneImage } from '../../store/images';
+import ImageActions from './ImageActions';
 
+import './imagePage.css'
 
 function ImagePage() {
   const dispatch = useDispatch();
   const { imageId } = useParams();
 
-  const image = useSelector(state => state.images[imageId])
+  const sessionUser = useSelector(state => state.session.user);
+  const image = useSelector(state => state.images[imageId]);
 
   useEffect(() =>{
     dispatch(getOneImage(imageId));
@@ -19,12 +22,21 @@ function ImagePage() {
     return null;
   }
 
-
   return(
     <div className="image-page-container">
        <div className="image-container">
         <img className="image-page-img" src={image?.imageUrl} alt={image.id} />
+        {sessionUser &&
+          <ImageActions sessionUser={sessionUser} image={image} />
+        }
+      </div>
+      {image.User.username}
+      <h2>{image.title}</h2>
+      <p>{image.description}</p>
 
+      <div className="comment-divider">
+
+        
       </div>
     </div>
 
