@@ -35,11 +35,13 @@ function CommentSection({sessionUser, imageId}){
     <div className="comments-container">
       {comments[imageId]?.map(comment => (
         <div className= "comment" key={comment?.id}>
+          <div className="comment-user">
           {comment.User.username}
           {comment.comment}
+          </div>
             {
               sessionUser && sessionUser.id === comment.userId &&
-               <div className="user-actions-hide">
+               <div className="user-actions">
                     <i className="fa-solid fa-pen-to-square fa-xl"></i>
                     <i onClick={(e) => {
                       setCommentId(comment.id)

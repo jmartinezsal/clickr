@@ -39,21 +39,11 @@ function Navigation({ isLoaded, path }){
   } else {
     sessionLinks = (
       <>
-        <NavLink to="/login" id="login-btn">Log In</NavLink>
-        <NavLink to="/signup" id="signup-btn">Sign Up</NavLink>
+        <NavLink to="/login" className="login-btn btn">Log In</NavLink>
+        <NavLink to="/signup" className="signup-btn btn">Sign Up</NavLink>
       </>
     );
   }
-  // console.log(pathArr.includes(path))
-  // useEffect(()=>{
-  //   if(!pathArr.includes(path))
-  //   {
-  //     setNav(false)
-  //   } else {
-  //     setNav(true)
-  //   }
-  // }, [path])
-
 
 
   return (

@@ -3,6 +3,7 @@
   height: 7.5vh;
   display: flex;
   position: fixed;
+  top: 0px;
   width: 100%;
   align-items: center;
   justify-content: space-between;
@@ -22,16 +23,17 @@
 }
 
 
-#login-btn{
+.login-btn{
   color: white;
 }
 
-#signup-btn{
+.signup-btn{
   color: #000;
   background-color: white;
   padding: 7.5px 15px;
   border-radius: 5px;
 }
+
 
 .nav-bar-right {
   display: flex;

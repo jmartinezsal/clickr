@@ -9,9 +9,6 @@
   width: 100%
 }
 
-body{
-  padding-bottom:20vh;
-}
 
 #root {
   display: flex;
@@ -23,12 +20,12 @@ a {
 
 }
 
-btn{
-  transition: transform 1s ease-in-out;
+.btn{
+  transition: transform .5s ease-in-out;
 }
 
-btn:hover {
-  transform: scale(1.2em);
+.btn:hover {
+  transform: scale(1.2);
 }
 
 i{

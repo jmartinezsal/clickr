@@ -4,9 +4,9 @@ import { Route, Switch } from "react-router-dom";
 
 import * as sessionActions from "./store/session.js";
 
-import SplashPage from "./components/SplashPage";
+import UserViewPage from "./components/UserViewPage/index.js";
 import LoginFormPage from "./components/LoginFormPage";
-import ExplorePage from "./components/ExplorePage"
+import ExplorePage from "./components/ExplorePage/index.js";
 import SignupFormPage from "./components/SignupFormPage";
 import ImagePage from "./components/ImagePage/index.js";
 import Navigation from "./components/Navigation";
@@ -29,7 +29,7 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route exact path="/">
-            <SplashPage />
+            <UserViewPage />
           </Route>
           <Route path="/signup">
             <SignupFormPage />

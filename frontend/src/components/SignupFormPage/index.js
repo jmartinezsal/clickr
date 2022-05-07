@@ -36,8 +36,9 @@ function SignupFormPage() {
           <h2>Sign up for Clickr</h2>
       </div>
       <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+        <ul className="errors">
+          {errors.map((error, idx) =>
+          <li key={idx}>{error}</li>)}
         </ul>
           <input
             type="text"
@@ -69,10 +70,6 @@ function SignupFormPage() {
           />
         <button type="submit">Sign Up</button>
       </form>
-      <div className="auth-form-btm" >
-          <hr size="1" width="300rem" color="lightGrey"/>
-          <p>Already a Clickr member? <NavLink to="/login">Log in here.</NavLink></p>
-        </div>
     </div>
   </div>
   );
