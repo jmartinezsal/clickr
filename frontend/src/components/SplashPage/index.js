@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-import { getAllImages } from "../../store/images";
 import './splashPage.css';
 
 function SplashPage(){

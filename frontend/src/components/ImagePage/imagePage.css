@@ -2,6 +2,8 @@
   height: 100%;
   width: 100%;
   overflow-y: scroll;
+
+
 }
 
 .image-container{
@@ -11,6 +13,8 @@
   background-color:#212124;
   height: 75vh;
   width: 100%;
+  touch-action: none;
+  background: linear-gradient(#212124, rgb(36, 35, 35), white);
 }
 
 
@@ -24,7 +28,7 @@
 .user-actions {
   display: flex;
   margin-bottom: 1.2em;
-  color: white;
+  color: black;
   align-self: flex-end;
 }
 

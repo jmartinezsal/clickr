@@ -15,13 +15,15 @@ function ImagePage() {
   const sessionUser = useSelector(state => state.session.user);
   const image = useSelector(state => state.images[imageId]);
 
+
   useEffect(() =>{
     dispatch(getOneImage(imageId));
-  }, [imageId])
+  }, [dispatch, imageId])
 
   if(!image){
     return null;
   }
+
 
   return(
     <div className="image-page-container">
@@ -31,11 +33,11 @@ function ImagePage() {
           <ImageActions sessionUser={sessionUser} image={image} />
         }
       </div>
-      {image?.User?.username}
+      {image.User?.username}
       <h2>{image?.title}</h2>
       <p>{image?.description}</p>
 
-      <CommentSection sessionUser={sessionUser} imageId={image?.id} />
+      <CommentSection sessionUser={sessionUser} imageId={image.id} />
     </div>
 
 

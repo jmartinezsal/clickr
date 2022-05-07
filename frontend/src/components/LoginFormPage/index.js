@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 import * as sessionActions from '../../store/session';
+import Demo from '../Demo';
 import './loginForm.css';
 
 function LoginFormPage(){
@@ -45,17 +46,18 @@ function LoginFormPage(){
             value={credential}
             name="credential"
             onChange={e => setCredential(e.target.value)}
-            required
             />
           <input type="password"
           placeholder='Password'
           value={password}
           onChange={e => setPassword(e.target.value)}
-          required
           />
         </div>
+        <div className='auth-btn-container'>
 
-        <button type="submit">Sign In</button>
+          <button type="submit">Sign In</button>
+          <Demo />
+        </div>
       </form>
       <div className="auth-form-btm" >
         <hr size="1" width="300rem" color="lightGrey"/>

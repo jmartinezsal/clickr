@@ -2,21 +2,11 @@
   background-color: rgba(0, 0, 0, 0.35);
   height: 7.5vh;
   display: flex;
-  position: absolute;
+  position: fixed;
   width: 100%;
   align-items: center;
   justify-content: space-between;
   z-index: 2;
-  box-shadow: 0 0 10px 0 black;
-}
-
-.nav-bar-change{
-  background-color: rgba(0, 0, 0);
-  height: 7.5vh;
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
   box-shadow: 0 0 10px 0 black;
 }
 

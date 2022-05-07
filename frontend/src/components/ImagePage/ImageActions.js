@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import React, {} from 'react';
+import {useDispatch} from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 import { deleteImage, editImage } from '../../store/images'
@@ -20,10 +20,10 @@ function ImageActions({sessionUser, image}){
     {sessionUser.id === image.userId &&
       <div className="user-actions">
         <span className="userActions-btn">
-          <i class="fa-solid fa-pen-to-square fa-2xl"></i>
+          <i className="fa-solid fa-pen-to-square fa-2xl"></i>
         </span>
         <span className="userActions-btn">
-          <i onClick={handleDelete} class="fa-solid fa-trash  fa-2xl"></i>
+          <i onClick={handleDelete} className="fa-solid fa-trash  fa-2xl"></i>
         </span>
       </div>
     }

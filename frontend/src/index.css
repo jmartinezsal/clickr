@@ -9,6 +9,10 @@
   width: 100%
 }
 
+body{
+  padding-bottom:20vh;
+}
+
 #root {
   display: flex;
   flex-direction: column;
