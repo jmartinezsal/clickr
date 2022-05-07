@@ -36,7 +36,7 @@ module.exports = {
       albumId: 1
     },
     {
-      imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQhmL8msAjvnRhttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQhmL8msAjvnR2pJk8L5hnDc2BqWL6I4L5HA&usqp=CAU2pJk8L5hnDc2BqWL6I4L5HA&usqp=CAU",
+      imageUrl: "https://images.unsplash.com/photo-1651800739182-a91b3b9f3b6c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw3fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
       title: "Spring is here...",
       userId: 1,
       albumId: 1

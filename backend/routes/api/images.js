@@ -10,7 +10,7 @@ const { handleValidationErrors } = require('../../utils/validation');
 const imageValidators = [
   check('imageUrl')
     .exists({ checkFalsy: true })
-    .withMessage("Please provide an image"),
+    .withMessage("Please provide an image url"),
   check("title")
     .exists({checkFalsy: true})
     .withMessage("Please provide a title"),
