@@ -17,6 +17,10 @@
   align-items: center;
 }
 
+.nav-bar-center *{
+  color: white;
+}
+
 .logo-img{
   width: 150px;
   height: 10vh;
@@ -42,17 +46,13 @@
   gap: 20px;
 }
 
-.nav-bar:hover{
-
-}
-
 .fa-cloud-arrow-up{
   color: white;
 
 }
 
-.fa-cloud-arrow-up:hover{
-  cursor: pointer;
+.fa-arrow-right-from-bracket{
+  color: white;
 }
 
 .profile-dropdown{

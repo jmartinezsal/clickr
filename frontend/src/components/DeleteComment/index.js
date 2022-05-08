@@ -1,11 +1,11 @@
 import React, {useState} from "react";
+
 import { Modal } from '../../context/Modal';
 import DeleteCommentForm from "./DeleteCommentModal";
-
+import './modal.css';
 
 function DeleteCommentModal({commentId}){
   const [ showModal, setShowModal ] = useState(false);
-
 
   return(
   <>

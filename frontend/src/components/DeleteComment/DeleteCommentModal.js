@@ -17,16 +17,16 @@ function DeleteCommentForm({showModal, commentId}){
   }
 
   return (
-    <form onSubmit={deleteHandler}>
+    <form className="modal-container" onSubmit={deleteHandler}>
       <label>
         Are you sure you want to delete this comment?
       </label>
       <div className="button-container-modal">
-        <button className="delete-button" type="submit">
-          Delete
-        </button>
         <button className="cancel-button" type="button" onClick={cancleHandler}>
           Cancel
+        </button>
+        <button className="delete-button" type="submit">
+          Delete
         </button>
       </div>
     </form>

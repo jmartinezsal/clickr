@@ -104,7 +104,7 @@ const initialState = { };
 const commentsReducer = (state = initialState, action) =>{
   switch(action.type){
     case LOAD_ALL_COMMENTS:{
-      const allComments = {};
+      const allComments = {...state};
       action.comments.forEach(comment => {
         allComments[comment.id] = comment;
       });
@@ -120,7 +120,7 @@ const commentsReducer = (state = initialState, action) =>{
       };
       return newState;
     }
-    
+
     case CREATE:{
         let newState = {
           ...state,

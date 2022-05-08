@@ -30,4 +30,11 @@ a {
 
 i{
   cursor: pointer;
+  transition: transform .5s ease-in-out;
 }
+
+i:hover{
+  transform: scale(1.2);
+}
+
+

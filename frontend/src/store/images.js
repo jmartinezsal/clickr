@@ -110,9 +110,6 @@ const imagesReducer = (state = initialState, action) =>{
       }
     }
     case LOAD_ONE:{
-      if(action.image.id) {
-        return state
-      }
       const newState = {
         ...state,
         [action.image.id]: action.image
