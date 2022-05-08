@@ -51,7 +51,7 @@ function Navigation({ isLoaded, path }){
     <div className="nav-bar">
       <div className='nav-bar-left'>
         <NavLink exact to="/">
-          <img className="logo-img" src='/images/logo3.svg' alt="logo"/>
+          <img className="logo-img" src='/images/logo.svg' alt="logo"/>
         </NavLink>
       </div>
         {isLoaded && exploringLinks}

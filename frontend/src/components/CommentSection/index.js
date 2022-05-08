@@ -11,7 +11,6 @@ function CommentSection({sessionUser, imageId}){
   const dispatch = useDispatch();
   const comments = useSelector(state => state.comments[imageId]);
 
-console.log(comments)
   useEffect(() =>{
     dispatch(getImageComments(imageId));
 
@@ -31,7 +30,7 @@ console.log(comments)
               sessionUser && sessionUser.id === comment.userId &&
                <div className="user-actions">
                     <EditComment currComment={comment} />
-                    <DeleteCommentModal commentId={comment.id} />
+                    <DeleteCommentModal commentId={comment.id} imageId={imageId} />
               </div>
             }
         </div>

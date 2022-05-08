@@ -1,13 +1,15 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { deleteComment } from "../../store/comments";
+import { deleteComment, getImageComments } from "../../store/comments";
 
-function DeleteCommentForm({showModal, commentId}){
+function DeleteCommentForm({showModal, commentId, imageId}){
   const dispatch = useDispatch();
 
+  console.log(imageId)
   const deleteHandler = async (e) =>{
     e.preventDefault();
-    dispatch(deleteComment(commentId));
+    dispatch(deleteComment(commentId))
+    .then(()=>dispatch(getImageComments(imageId)));
     showModal(false)
   }
 

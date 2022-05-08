@@ -11,7 +11,7 @@ function DeleteImageForm({showModal,imageId}){
   const deleteHandler = e => {
     e.preventDefault();
     history.push('/explore');
-    return dispatch(deleteImage(imageId));
+    dispatch(deleteImage(imageId))
   }
 
   const cancleHandler = e =>{
