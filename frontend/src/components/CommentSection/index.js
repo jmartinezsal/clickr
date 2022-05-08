@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {getImageComments} from '../../store/comments.js';
@@ -30,7 +30,7 @@ function CommentSection({sessionUser, imageId}){
               sessionUser && sessionUser.id === comment.userId &&
                <div className="user-actions">
                     <EditComment currComment={comment} />
-                    <DeleteCommentModal commentId={comment.id} imageId={imageId} />
+                    <DeleteCommentModal commentId={comment.id} />
               </div>
             }
         </div>

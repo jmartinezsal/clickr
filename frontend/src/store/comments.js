@@ -113,12 +113,14 @@ const commentsReducer = (state = initialState, action) =>{
       }
     }
     case LOAD_IMAGE_COMMENTS:{
-      let imageId = action.comments[0].imageId
-      const newState = {
-        ...state,
-        [imageId]: action.comments
-      };
-      return newState;
+      if(action.comments.length){
+        let imageId = action.comments[0].imageId
+        const newState = {
+          ...state,
+          [imageId]: action.comments
+        };
+        return newState;
+      } else return state;
     }
 
     case CREATE:{

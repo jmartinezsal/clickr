@@ -37,7 +37,7 @@ function ImagePage() {
       <h2>{image?.title}</h2>
       <p>{image?.description}</p>
 
-      <CommentSection sessionUser={sessionUser} imageId={image.id} />
+      <CommentSection sessionUser={sessionUser} imageId={imageId} />
     </div>
 
 
