@@ -2,21 +2,12 @@
   background-color: rgba(0, 0, 0, 0.35);
   height: 7.5vh;
   display: flex;
-  position: absolute;
+  position: fixed;
+  top: 0px;
   width: 100%;
   align-items: center;
   justify-content: space-between;
   z-index: 2;
-  box-shadow: 0 0 10px 0 black;
-}
-
-.nav-bar-change{
-  background-color: rgba(0, 0, 0);
-  height: 7.5vh;
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
   box-shadow: 0 0 10px 0 black;
 }
 
@@ -26,22 +17,27 @@
   align-items: center;
 }
 
+.nav-bar-center *{
+  color: white;
+}
+
 .logo-img{
   width: 150px;
   height: 10vh;
 }
 
 
-#login-btn{
+.login-btn{
   color: white;
 }
 
-#signup-btn{
+.signup-btn{
   color: #000;
   background-color: white;
   padding: 7.5px 15px;
   border-radius: 5px;
 }
+
 
 .nav-bar-right {
   display: flex;
@@ -50,17 +46,13 @@
   gap: 20px;
 }
 
-.nav-bar:hover{
-
-}
-
 .fa-cloud-arrow-up{
   color: white;
 
 }
 
-.fa-cloud-arrow-up:hover{
-  cursor: pointer;
+.fa-arrow-right-from-bracket{
+  color: white;
 }
 
 .profile-dropdown{

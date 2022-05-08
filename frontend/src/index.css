@@ -9,6 +9,7 @@
   width: 100%
 }
 
+
 #root {
   display: flex;
   flex-direction: column;
@@ -19,14 +20,21 @@ a {
 
 }
 
-btn{
-  transition: transform 1s ease-in-out;
+.btn{
+  transition: transform .5s ease-in-out;
 }
 
-btn:hover {
-  transform: scale(1.2em);
+.btn:hover {
+  transform: scale(1.2);
 }
 
 i{
   cursor: pointer;
+  transition: transform .5s ease-in-out;
 }
+
+i:hover{
+  transform: scale(1.2);
+}
+
+

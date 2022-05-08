@@ -15,27 +15,26 @@ function ExplorePage(){
     dispatch(getAllImages());
   }, [dispatch])
 
-  const imgClassNames = ['small', 'small', 'small', 'big', 'tall', 'wide'];
+  const imgClassNames = ['small', 'small', 'big', 'tall', 'wide'];
 
   if(!images) return null;
-  console.log(images[0])
 
   return(
     <>
-    <h2>Explore</h2>
-    <div className='explore-image-container'>
+      <h2>Explore</h2>
+      <div className='explore-image-container'>
 
-      {images?.map((image,index) =>(
-      <NavLink to={`/images/${image.id}`}>
-        <img class={imgClassNames[index % imgClassNames.length]}
-        src={image.imageUrl} alt={image.userId}/>
-        {/* <div className="hide">
-          {image.title}
-        </div> */}
-      </NavLink>
-      ))}
+        {images?.map((image,index) =>(
+        <NavLink to={`/images/${image.id}`} key={image.id}>
+          <img className={imgClassNames[index % imgClassNames.length]}
+          src={image.imageUrl} alt={image.userId}/>
+          {/* <div className="hide">
+            {image.title}
+          </div> */}
+        </NavLink>
+        ))}
 
-    </div>
+      </div>
     </>
   )
 

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 import * as sessionActions from '../../store/session';
+import Demo from '../Demo';
 import './loginForm.css';
 
 function LoginFormPage(){
@@ -31,36 +32,33 @@ function LoginFormPage(){
     <div className="auth-form-container">
       <div className="auth-form-top" >
         <img className="auth-logo" src="/images/brand.svg" alt="brand"/>
-          <h2>Log in to Clickr</h2>
+          <h3>Log in to Clickr</h3>
       </div>
-      <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error, idx) =>
-          <li key={idx}>{error}</li>
-          )}
-        </ul>
-        <div className="input">
+        <form onSubmit={handleSubmit}>
+          <ul className="errors">
+            {errors.map((error, idx) =>
+            <>
+              <li key={idx}>{error}</li>
+            </>
+
+            )}
+          </ul>
+          <div className="input-container">
             <input type="text"
-            placeholder=' Username or Email'
+            placeholder='Username or Email'
             value={credential}
             name="credential"
             onChange={e => setCredential(e.target.value)}
-            required
             />
-          <input type="password"
-          placeholder='Password'
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-          required
-          />
-        </div>
-
-        <button type="submit">Sign In</button>
-      </form>
-      <div className="auth-form-btm" >
-        <hr size="1" width="300rem" color="lightGrey"/>
-        <p>Not a Clickr member? <a href="/signup">Sign up here.</a></p>
-      </div>
+            <input type="password"
+            placeholder='Password'
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+            />
+          </div>
+            <button type="submit" className="auth-btn">Sign In</button>
+        </form>
+        <Demo />
     </div>
   </div>
   )

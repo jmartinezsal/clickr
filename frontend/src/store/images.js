@@ -99,7 +99,7 @@ const initialState = { };
 
 const imagesReducer = (state = initialState, action) =>{
   switch(action.type){
-    case LOAD:
+    case LOAD:{
       const allImages = {};
       action.images.forEach(image => {
         allImages[image.id] = image
@@ -108,42 +108,37 @@ const imagesReducer = (state = initialState, action) =>{
         ...state,
         ...allImages
       }
-    case LOAD_ONE:
-      if (!state[action.image.id]) {
+    }
+    case LOAD_ONE:{
+      const newState = {
+        ...state,
+        [action.image.id]: action.image
+      };
+      return newState;
+    }
+
+    case CREATE:{
+      const newState = {
+        ...state,
+        [action.image.id]: action.image
+      }
+      return newState;
+    }
+      case EDIT:{
         const newState = {
           ...state,
           [action.image.id]: action.image
-        };
-        const newStateArr = Object.values(newState);;
-        const imageList = newStateArr.map(id => newState[id]);
-        imageList.push(action.pokemon);
+        }
         return newState;
-      } return {
-        ...state,
-        [action.image.id]: {
-          ...state[action.image.id],
-          ...action.image
-        }
-      };
-    case CREATE:
-        if(!state[action.image.id]){
-          const newState = {
-            ...state,
-            [action.image.id]: action.image
-          }
-          return newState;
-        }
-      case EDIT:
-        return {
-          ...state,
-          [action.image.id]: action.image
-        }
-      case REMOVE:
+      }
+      case REMOVE:{
         let newState = {...state}
         delete newState[action.imageId];
         return newState;
-    default:
-      return state;
+      }
+
+      default:
+        return state;
   }
 };
 
