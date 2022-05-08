@@ -18,8 +18,9 @@ function CommentSection({sessionUser, imageId}){
 
 
   return(
-  <div className='comment-container-area'>
-    <div className="comments-container">
+  <>
+    <h4 className='comment-title'>Recent Comments</h4>
+    <div className="comment-card">
       {comments && comments?.map(comment => (
         <div className= "comment" key={comment.id}>
           <div className="comment-user">
@@ -37,7 +38,7 @@ function CommentSection({sessionUser, imageId}){
       ))}
       </div>
         <CreateComment sessionUser={sessionUser} imageId={imageId}/>
-  </div>
+  </>
   )
 
 }

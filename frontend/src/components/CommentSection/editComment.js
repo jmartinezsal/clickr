@@ -23,25 +23,27 @@ function EditComment({currComment}){
 
   const handleClickForm = () =>{
     setShowForm(!showForm)
+
   }
 
   return(
     <>
-     <i onClick={handleClickForm} className={showForm ? "fa-solid fa-x" : "fa-solid fa-pen-to-square fa-xl"} ></i>
-      <form className={showForm ? "edit-form" : "hide-form"} onSubmit={handleSubmit}>
-      <textarea
-            id="comment"
-            type="textarea"
-            placeholder={currComment.comment}
-            value={comment}
-            name="comment"
-            onChange={e => {
-              setSubmitBtn("")
-              setComment(e.target.value)}}
-            />
-        <button hidden={submitBtn} disabled={comment.length < 3} type="submit">Update</button>
-      </form>
-
+    <div className="update-comment-form">
+      <i onClick={handleClickForm} className={showForm ? "fa-solid fa-x" : "fa-solid fa-pen-to-square fa-xl"} ></i>
+        <form className={showForm ? "edit-form" : "hide-form"} onSubmit={handleSubmit}>
+              <textarea
+              id="comment"
+              type="textarea"
+              placeholder={currComment.comment}
+              value={comment}
+              name="comment"
+              onChange={e => {
+                setSubmitBtn("")
+                setComment(e.target.value)}}
+              />
+          <button hidden={submitBtn} disabled={comment.length < 3} type="submit">Update</button>
+        </form>
+      </div>
   </>
 
   )

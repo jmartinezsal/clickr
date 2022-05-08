@@ -33,11 +33,17 @@ function ImagePage() {
           <ImageActions sessionUser={sessionUser} image={image} />
         }
       </div>
-      {image.User?.username}
-      <h2>{image?.title}</h2>
-      <p>{image?.description}</p>
+      <div className='comment-container-area'>
+      <div className="image-header">
+        <h4>{image.User?.username}</h4>
+        <h5>{image?.title}</h5>
+        <p>{image?.description}</p>
+      </div>
+      <div className="header-comment-divider">
 
+      </div>
       <CommentSection sessionUser={sessionUser} imageId={imageId} />
+    </div>
     </div>
 
 

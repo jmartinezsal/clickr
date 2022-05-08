@@ -1,17 +1,18 @@
-.comment-container-area{
+.comment-container-area {
   max-width: 100%;
   display: flex;
   flex-direction: column;
 
   justify-content: flex-start;
   padding: 10px 10%;
-  background:  rgba(236, 230, 230, 0.896);
+  background: #f3f5f6;
   padding-bottom: 15vh;
+  border-top: 2px solid rgba(128, 128, 128, 0.116);
 
 }
 
-.comment{
-  line-height: 5em;
+.comment {
+  line-height: 3em;
   max-width: 100%;
   display: flex;
   flex-direction: column;
@@ -19,31 +20,31 @@
 }
 
 
-.comment:hover{
+.comment:hover {
   background-color: rgba(255, 255, 255, 0.827);
   visibility: visible;
 }
 
 
-textarea {
-  max-height:5.5em;
-  max-width:30em;
-  color:#999;
-  font-weight:200;
-  font-size:12px;
+.comment-textarea {
+  max-height: 5.5em;
+  max-width: 30em;
+  color: #999;
+  font-weight: 200;
+  font-size: 12px;
   padding: 6px 10px;
   border-radius: 3px;
   line-height: 1.5em;
-  width:100%;
-  background:#fff;
-  border-radius:3px;
-  line-height:2em;
-  border:none;
-  box-shadow:0px 0px 5px 1px rgba(0,0,0,0.1);
+  width: 100%;
+  background: #fff;
+  border-radius: 3px;
+  line-height: 2em;
+  border: none;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
   overflow-wrap: break-word;
 }
 
 
-.hide-form{
-display: none;
+.hide-form {
+  display: none;
 }

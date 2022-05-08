@@ -29,6 +29,7 @@ function CreateComment({imageId, sessionUser}){
   <form onSubmit={handleSubmit}>
         <textarea
         id="comment"
+        className="comment-textarea"
         type="textarea"
         placeholder="Add a comment"
         value={comment}
