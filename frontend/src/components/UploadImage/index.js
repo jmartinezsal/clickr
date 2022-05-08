@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {useHistory} from 'react-router-dom';
+import {useHistory, Redirect} from 'react-router-dom';
 
 
 import {createImage} from '../../store/images';
@@ -16,12 +16,9 @@ function UploadImagePage(){
   const [description, setDescription] = useState("");
   const [errors, setErrors] = useState([]);
 
-
-  // if(sessionUser) return(
-  //   <Redirect to />
-  // )
-
-
+  if(!sessionUser) return(
+    <Redirect to />
+  )
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -31,9 +28,8 @@ function UploadImagePage(){
       const data = await res.json();
       if (data && data.errors){
         setErrors(data.errors);
-      }else {
-        history.push('/');
       }
+      history.push(`/`);
     });
   }
 

@@ -1,6 +1,6 @@
 import {csrfFetch} from './csrf'
 
-const LOAD = 'comments/LOAD';
+const LOAD_IMAGE_COMMENTS = 'comments/LOAD_IMAGE_COMMENTS';
 const LOAD_ALL_COMMENTS = 'comments/LOAD_ALL_COMMENTS'
 const CREATE = 'comments/CREATE';
 const EDIT = 'comments/EDIT';
@@ -13,7 +13,7 @@ const loadAll = comments =>({
 });
 
 const load = comments =>({
-  type: LOAD,
+  type: LOAD_IMAGE_COMMENTS,
   comments
 });
 
@@ -103,49 +103,42 @@ const initialState = { };
 
 const commentsReducer = (state = initialState, action) =>{
   switch(action.type){
-    case LOAD_ALL_COMMENTS:
+    case LOAD_ALL_COMMENTS:{
       const allComments = {};
       action.comments.forEach(comment => {
         allComments[comment.id] = comment;
       });
       return {
-        ...state,
         ...allComments
       }
-    case LOAD:
+    }
+    case LOAD_IMAGE_COMMENTS:{
       let imageId = action.comments[0].imageId
-        if (!state[action.comments.imageId]) {
-          const newState = {
-            ...state,
-            [imageId]: action.comments
-          };
-          return newState;
-        } return {
+      const newState = {
+        ...state,
+        [imageId]: action.comments
+      };
+      return newState;
+    }
+    
+    case CREATE:{
+        let newState = {
           ...state,
-          [imageId]: {
-            ...state[action.comments.id],
-            ...action.comment
-          }
+          [action.comment.id]: action.comment
         }
-    case CREATE:
-        if(!state[action.comment.id]){
-          const newState = {
-            ...state,
-            [action.comment.id]: action.comment
-          }
-          return newState;
-        } else {
-          return state;
-        }
-      case EDIT:
+        return newState;
+    }
+      case EDIT:{
         return {
           ...state,
           [action.comment.id]: action.comment
         }
-      case REMOVE:
-        let newState = {...state}
-        delete newState[action.commentId];
-        return newState;
+      }
+        case REMOVE:{
+          let newState = {...state}
+          delete newState[action.commentId];
+          return newState;
+        }
     default:
       return state;
   }

@@ -1,19 +1,11 @@
 import React, {} from 'react';
-import {useDispatch} from 'react-redux';
-import { useHistory } from 'react-router-dom';
 
-import { deleteImage, editImage } from '../../store/images'
-
+import { editImage } from '../../store/images'
+import DeleteImageModal from '../DeleteImageModal';
 
 function ImageActions({sessionUser, image}){
-  const dispatch = useDispatch();
-  const history = useHistory()
   const imageId = image.id;
-  const handleDelete = e => {
-    e.preventDefault();
-    history.push('/explore');
-    return dispatch(deleteImage(imageId));
-  }
+
 
   return (
     <>
@@ -22,9 +14,7 @@ function ImageActions({sessionUser, image}){
         <span className="userActions-btn">
           <i className="fa-solid fa-pen-to-square fa-2xl"></i>
         </span>
-        <span className="userActions-btn">
-          <i onClick={handleDelete} className="fa-solid fa-trash  fa-2xl"></i>
-        </span>
+        <DeleteImageModal imageId={imageId} />
       </div>
     }
     </>

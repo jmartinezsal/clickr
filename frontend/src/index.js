@@ -6,6 +6,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import configureStore from './store';
+
+import { ModalProvider } from "./context/Modal";
 import { restoreCSRF, csrfFetch } from './store/csrf';
 import * as sessionActions from './store/session';
 import * as imagesActions from './store/images';
@@ -27,9 +29,11 @@ if(process.env.NODE_ENV !== 'production'){
 function Root(){
   return(
     <Provider store={store}  >
-      <BrowserRouter>
-       <App />
-      </BrowserRouter>
+      <ModalProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ModalProvider>
     </Provider>
   )
 }

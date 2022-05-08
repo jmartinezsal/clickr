@@ -1,37 +1,30 @@
 import React, { useState} from 'react';
 import { useDispatch } from 'react-redux';
 import { createComment } from '../../store/comments.js';
+import { useHistory } from 'react-router-dom';
 
 
-function CreateComment({imageId}){
+function CreateComment({imageId, sessionUser}){
   const dispatch = useDispatch();
-
+  const history = useHistory();
 
   const [comment, setComment] = useState("");
-  const [errors, setErrors] = useState([]);
   const [submitBtn, setSubmitBtn] = useState("hidden")
 
 
   const handleSubmit = e => {
     e.preventDefault();
-    setErrors([]);
+    if(!sessionUser){
+      window.alert("Must be logged-in");
+      history.push('/login')
+    }
+    setComment("");
     dispatch(createComment({comment,imageId}))
-      .catch(async (res) => {
-      const data = await res.json();
-      if (data && data.errors){
-        setErrors(data.errors);
-      }
-    });
   }
 
   return(
 
   <form onSubmit={handleSubmit}>
-    <ul>
-      {errors.map((error, idx) =>
-      <li key={idx}>{error}</li>
-      )}
-    </ul>
         <textarea
         id="comment"
         type="textarea"
@@ -43,7 +36,7 @@ function CreateComment({imageId}){
           setComment(e.target.value)}}
         />
 
-    <button hidden={submitBtn}type="submit">Create</button>
+    <button hidden={submitBtn} disabled={comment.length < 3} type="submit">Create</button>
    </form>
 
   )
