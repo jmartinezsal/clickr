@@ -25,7 +25,7 @@ function EditImagePage({showModal, image}){
     });
   }
 
-  const cancleHandler = e =>{
+  const cancelHandler = e =>{
     e.preventDefault();
     showModal(false);
   }
@@ -72,10 +72,11 @@ function EditImagePage({showModal, image}){
       </div>
       <div className="auth-btn-container">
         <button className="auth-btn" type="submit">Create</button>
+        <button className="demo-button btn" onClick={cancelHandler} type="button">Cancel</button>
       </div>
       </form>
     </div>
-  
+
   )
 };
 

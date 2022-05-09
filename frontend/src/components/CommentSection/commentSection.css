@@ -32,7 +32,6 @@
 
 .comment-container-area .user-actions i{
   display: none;
-  transition: color transform .25s ease-in-out;
 }
 
 
@@ -47,7 +46,6 @@ color:#bfbfbf
 
 .comment i:hover{
   color: black;
-  transform: scale(1.2);
 }
 
 .comment .fa-trash:hover{

@@ -35,6 +35,7 @@ i{
   transition: transform .5s ease-in-out;
 }
 
-header i:hover:not(footer i){
+ i:hover:not(footer i){
   transform: scale(1.2);
+
 }
