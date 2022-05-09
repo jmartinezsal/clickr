@@ -4,7 +4,7 @@ import {useHistory, Redirect} from 'react-router-dom';
 
 
 import {createImage} from '../../store/images';
-import './uploadImagePage.css';
+import './UploadImagePage.css';
 
 function UploadImagePage(){
   const dispatch = useDispatch();

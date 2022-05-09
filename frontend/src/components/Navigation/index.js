@@ -3,7 +3,7 @@ import { NavLink, useHistory} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { logout } from '../../store/session.js'
-import './navigation.css';
+import './Navigation.css';
 
 function Navigation({ isLoaded, path }){
   const dispatch = useDispatch();
