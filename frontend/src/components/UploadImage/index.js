@@ -35,43 +35,46 @@ function UploadImagePage(){
 
   return(
   <div className="image-form-page">
-    <div className=" upload-form-container">
+    <div className=" auth-form-container">
+    <div className="auth-form-top" >
     <img className="auth-logo" src="/images/brand.svg" alt="brand"/>
-      <h2>Upload an image</h2>
+      <h3>Upload an image</h3>
+    </div>
       <form onSubmit={handleSubmit}>
         <ul>
+        <div className='errors'>
           {errors.map((error, idx) =>
-          <li key={idx}>{error}</li>
+            <>
+            <li key={idx}>
+              <i class="fa-solid fa-exclamation fa-pulse"></i>
+              &nbsp; {error}
+            </li>
+            </>
           )}
+        </div>
         </ul>
-        <label>
-            Image URL:
+        <div className="input-container">
             <input
+            placeholder='Image URL'
             type="text"
             value={imageUrl}
             name="imageUrl"
             onChange={e => setImageUrl(e.target.value)}
-
             />
-
-        </label>
-        <label>
-          Title
-          <input type="title"
+          <input type="text"
+          placeholder='title'
           value={title}
           onChange={e => setTitle(e.target.value)}
-
           />
-        </label>
-        <label>
-          Description:
-          <input type="Description"
+          <input type="text"
+          placeholder='Description'
           value={description}
           onChange={e => setDescription(e.target.value)}
-
           />
-        </label>
-        <button type="submit">Create</button>
+      </div>
+      <div className="auth-btn-container">
+        <button className="auth-btn" type="submit">Create</button>
+      </div>
       </form>
     </div>
   </div>
