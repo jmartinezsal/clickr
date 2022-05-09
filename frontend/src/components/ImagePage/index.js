@@ -1,12 +1,13 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Redirect, useParams } from 'react-router-dom';
 
 import { getOneImage } from '../../store/images';
 import ImageActions from './ImageActions';
 import CommentSection from '../CommentSection';
 
 import './imagePage.css'
+import PageNotFound from '../PageNotFound';
 
 function ImagePage() {
   const dispatch = useDispatch();
@@ -17,13 +18,13 @@ function ImagePage() {
 
 
   useEffect(() =>{
-    dispatch(getOneImage(imageId));
+    dispatch(getOneImage(imageId))
+
   }, [dispatch, imageId])
 
   if(!image){
     return null;
   }
-
 
   return(
     <div className="image-page-container">

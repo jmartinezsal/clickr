@@ -1,6 +1,5 @@
 import React, {} from 'react';
 
-import { editImage } from '../../store/images'
 import DeleteImageModal from '../DeleteImageModal';
 import EditImageModal from '../EditImageModal';
 

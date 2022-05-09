@@ -26,9 +26,20 @@
   color: white;
   display: flex;
   align-items: center;
+  transition: transform .5s ease-in-out;}
+
+.footer-left a:hover{
+ cursor: pointer;
+ transform: scale(1.05);
 }
 
-.footer i {
+.footer-right{
+  padding-right: 7.5%;
+
+}
+
+.footer-right i {
   cursor: auto;
   transition: none;
+  margin-right: 10px;
 }
