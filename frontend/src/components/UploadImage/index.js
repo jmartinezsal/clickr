@@ -62,7 +62,7 @@ function UploadImagePage(){
             onChange={e => setImageUrl(e.target.value)}
             />
           <input type="text"
-          placeholder='title'
+          placeholder='Title'
           value={title}
           onChange={e => setTitle(e.target.value)}
           />

@@ -19,9 +19,6 @@ function ImagePage() {
 
   useEffect(() =>{
     dispatch(getOneImage(imageId))
-      .catch(async (res) => {
-      
-  })
 
   }, [dispatch, imageId])
 
