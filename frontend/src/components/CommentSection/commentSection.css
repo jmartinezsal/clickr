@@ -27,23 +27,44 @@
 
 
 .comment-textarea {
-  max-height: 5.5em;
-  max-width: 30em;
-  color: #999;
-  font-weight: 200;
-  font-size: 12px;
-  padding: 6px 10px;
-  border-radius: 3px;
-  line-height: 1.5em;
+  height: 3.5em;
+  box-sizing: border-box;
   width: 100%;
+  line-height: 1.5em;
+  font-size: 16px;
+  margin-top: 1.5em;
+  padding: 6px 10px;
+  color: #999;
   background: #fff;
-  border-radius: 3px;
-  line-height: 2em;
-  border: none;
+  border-radius: 5px;
+  border-color: #bfbfbf;
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
-  overflow-wrap: break-word;
+
+  outline: none;
+  resize: none;
+}
+.commnet-create-container{
+  display: flex;
 }
 
+.create-comment-btn{
+  margin-top: 10px;
+  height: 32px;
+  float: right;
+  background-color: #0091dc;
+  color: white;
+  border-color: transparent;
+  font-size: 16px;
+  font-weight: 400;
+  transtion: background-color .25s ease-in-out;
+  min-width: 100px;
+  padding: 0 2px;
+}
+
+.create-comment-btn:hover{
+  background-color: #008fd6c9;
+
+}
 
 .hide-form {
   display: none;

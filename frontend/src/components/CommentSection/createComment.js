@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect} from 'react';
 import { useDispatch } from 'react-redux';
 import { createComment, getImageComments } from '../../store/comments.js';
 import { useHistory } from 'react-router-dom';
@@ -25,7 +25,7 @@ function CreateComment({imageId, sessionUser}){
   }
 
   return(
-
+  <div className="comment-create-container">
   <form onSubmit={handleSubmit}>
         <textarea
         id="comment"
@@ -37,10 +37,11 @@ function CreateComment({imageId, sessionUser}){
         onChange={e => {
           setSubmitBtn("")
           setComment(e.target.value)}}
-        />
+          />
 
-    <button hidden={submitBtn} disabled={comment.length < 3} type="submit">Create</button>
+    <button className="create-comment-btn" hidden={submitBtn} disabled={comment.length < 3} type="submit">Comment</button>
    </form>
+  </div>
 
   )
 }

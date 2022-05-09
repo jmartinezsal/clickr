@@ -8,7 +8,7 @@ function DeleteImageModal({imageId}){
 
   return(
   <>
-     <i onClick={() => setShowModal(true)} className="fa-solid fa-trash  fa-xl"></i>
+     <i onClick={() => setShowModal(true)} className="fa-solid fa-trash fa-xl"></i>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <DeleteImageForm showModal={setShowModal} imageId={imageId} />

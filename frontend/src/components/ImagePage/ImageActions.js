@@ -11,9 +11,7 @@ function ImageActions({sessionUser, image}){
     <>
     {sessionUser.id === image.userId &&
       <div className="user-actions">
-        <span className="userActions-btn">
-          <i className="fa-solid fa-pen-to-square fa-2xl"></i>
-        </span>
+        <i className="fa-solid fa-pen-to-square fa-xl"></i>
         <DeleteImageModal imageId={imageId} />
       </div>
     }
