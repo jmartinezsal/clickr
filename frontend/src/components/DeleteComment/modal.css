@@ -1,6 +1,40 @@
 .modal-container{
-  width:60%;
- 
-  color: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width:100%;
+  padding:1.5em;
+  background-color: #f8f7f7;
+}
+
+.modal-container label{
+  margin-bottom: 2em;
+  text-align: center;
+}
+
+.button-container-modal{
+  display: flex;
+  justify-content: space-around;
+}
+
+.cancel-button{
+  background-color: rgba(255, 0, 0, 0.716);
+}
+
+.delete-button{
+  background-color: #0091dc;
+}
+
+.button-container-modal button{
+  padding: 5px 20px;
+  border-radius: 4px;
+  font-weight: 700;
+  transition: transform .25s, opacity .25s ease-in-out;
+  color: white;
+}
+
+.button-container-modal button:hover{
+  transform: scale(1.1);
+  opacity: .7;
 
 }

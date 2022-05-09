@@ -20,12 +20,12 @@ function CommentSection({sessionUser, imageId}){
   return(
   <>
     <h4 className='comment-title'>Recent Comments</h4>
-    <div className="comment-card">
+    <div className="comment-container">
       {comments && comments?.map(comment => (
         <div className= "comment" key={comment.id}>
           <div className="comment-user">
-          {comment?.User?.username}
-          {comment.comment}
+            <h4>{comment?.User?.username}</h4>
+            <p>{comment.comment}</p>
           </div>
             {
               sessionUser && sessionUser.id === comment.userId &&

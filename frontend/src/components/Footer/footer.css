@@ -3,7 +3,7 @@
   position: fixed;
   left:0px;
   bottom:0px;
-  height: 7.5vh;
+  height: 8.5vh;
   width: 100%;
   padding: 0px 40px;
   display: flex;
@@ -35,7 +35,10 @@
 
 .footer-right{
   padding-right: 7.5%;
+}
 
+.footer-right h3{
+  margin-bottom: 10px;
 }
 
 .footer-right i {

@@ -11,18 +11,47 @@
 
 }
 
+.comment-title{
+  color:#bfbfbf;
+  margin: 10px 0px;
+}
+
+.comment-user p{
+  margin-top: 10px;
+  color:#bfbfbf;
+
+}
 .comment {
-  line-height: 3em;
   max-width: 100%;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  margin-bottom: 1.2em;
+  word-wrap: break-word;
+}
+
+.comment-container-area .user-actions i{
+  display: none;
+  transition: color transform .25s ease-in-out;
 }
 
 
-.comment:hover {
+.comment:hover{
   background-color: rgba(255, 255, 255, 0.827);
-  visibility: visible;
+}
+
+.comment:hover i{
+display: block;
+color:#bfbfbf
+}
+
+.comment i:hover{
+  color: black;
+  transform: scale(1.2);
+}
+
+.comment .fa-trash:hover{
+  color:red;
 }
 
 
@@ -39,13 +68,10 @@
   border-radius: 5px;
   border-color: #bfbfbf;
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
-
   outline: none;
   resize: none;
 }
-.commnet-create-container{
-  display: flex;
-}
+
 
 .create-comment-btn{
   margin-top: 10px;
@@ -68,4 +94,9 @@
 
 .hide-form {
   display: none;
+}
+
+.edit-form{
+  box-sizing: content-box;
+  width:100%;
 }

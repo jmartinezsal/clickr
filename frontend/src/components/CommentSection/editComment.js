@@ -28,8 +28,7 @@ function EditComment({currComment}){
 
   return(
     <>
-    <div className="update-comment-form">
-      <i onClick={handleClickForm} className={showForm ? "fa-solid fa-x" : "fa-solid fa-pen-to-square fa-xl"} ></i>
+      <i onClick={handleClickForm} className={showForm ? "fa-solid fa-x fa-x" : "fa-solid fa-pen-to-square fa-xl"} ></i>
         <form className={showForm ? "edit-form" : "hide-form"} onSubmit={handleSubmit}>
               <textarea
               id="comment"
@@ -41,9 +40,8 @@ function EditComment({currComment}){
                 setSubmitBtn("")
                 setComment(e.target.value)}}
               />
-          <button hidden={submitBtn} disabled={comment.length < 3} type="submit">Update</button>
+          <button className="edit-comment-btn" hidden={submitBtn} disabled={comment.length < 3} type="submit">Done</button>
         </form>
-      </div>
   </>
 
   )
