@@ -24,12 +24,12 @@ function UploadImagePage(){
     e.preventDefault();
     setErrors([]);
     dispatch(createImage({imageUrl, title, description}))
+      .then(()=>history.push(`/`))
       .catch(async (res) => {
       const data = await res.json();
       if (data && data.errors){
         setErrors(data.errors);
       }
-      history.push(`/`);
     });
   }
 

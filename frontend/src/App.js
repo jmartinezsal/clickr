@@ -12,6 +12,7 @@ import ImagePage from "./components/ImagePage/index.js";
 import Navigation from "./components/Navigation";
 import UploadImagePage from './components/UploadImage';
 import Footer from './components/Footer';
+import PageNotFound from "./components/PageNotFound/index.js";
 
 function App() {
   const dispatch = useDispatch();
@@ -47,7 +48,7 @@ function App() {
             <ImagePage />
           </Route>
           <Route>
-            Page Not found
+            <PageNotFound />
           </Route>
         </Switch>
       )}
