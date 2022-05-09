@@ -4,6 +4,9 @@
   justify-content: center;
   margin: 0px auto;
   padding-top: 9vh;
+  font-family: 'Apple Chancery', cursive;
+  font-size: 30px;
+  font-weight: 700;
 }
 
 .explore-image-container{
