@@ -6,7 +6,7 @@ import { deleteComment, getImageComments } from "../../store/comments";
 function DeleteCommentForm({showModal, commentId}){
   const dispatch = useDispatch();
   const { imageId } = useParams()
-  console.log(imageId)
+  
   const deleteHandler = async (e) =>{
     e.preventDefault();
     dispatch(deleteComment(commentId))
