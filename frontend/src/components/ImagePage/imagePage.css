@@ -25,6 +25,21 @@
 
 }
 
+.image-header{
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+}
+
+.image-header *{
+  padding-bottom: 2%;
+
+}
+.image-header p {
+  font-size: 12px;
+
+}
+
 .user-actions {
   display: flex;
   margin-bottom: 1.2em;
@@ -34,4 +49,26 @@
 
 .user-actions *{
   padding-right: 20px;
+}
+
+.header-comment-divider{
+  padding-left: 10%;
+  border-top: 1px rgba(128, 128, 128, 0.546) solid ;
+  border-bottom:1px rgba(128, 128, 128, 0.547) solid ;
+  height: 50px;
+  width: 90%;
+
+}
+
+
+.user-actions i{
+  color: #bfbfbf;
+}
+
+.user-actions i:hover{
+  color: black;
+}
+
+.user-actions .fa-trash:hover{
+  color:red;
 }

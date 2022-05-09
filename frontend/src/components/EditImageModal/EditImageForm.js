@@ -1,40 +1,38 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import {useHistory, Redirect} from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import {editImage, getOneImage} from '../../store/images';
 
-
-import {createImage} from '../../store/images';
-import './uploadImagePage.css';
-
-function UploadImagePage(){
+function EditImagePage({showModal, image}){
   const dispatch = useDispatch();
-  const history = useHistory();
-  const sessionUser = useSelector((state) => state.session.user);
+  const imageId = image.id;
 
-  const [imageUrl, setImageUrl] = useState("");
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+  const [imageUrl, setImageUrl] = useState(image.imageUrl);
+  const [title, setTitle] = useState(image.title);
+  const [description, setDescription] = useState(image.description);
   const [errors, setErrors] = useState([]);
-
-  if(!sessionUser) return(
-    <Redirect to />
-  )
 
   const handleSubmit = e => {
     e.preventDefault();
     setErrors([]);
-    dispatch(createImage({imageUrl, title, description}))
-      .then(()=>history.push(`/`))
+    dispatch(editImage({imageUrl, title, description, id: imageId}))
+      .then(()=>dispatch(getOneImage(image.id)))
+      .then(() => showModal(false))
       .catch(async (res) => {
-      const data = await res.json();
-      if (data && data.errors){
-        setErrors(data.errors);
-      }
+        const data = await res.json();
+        if (data && data.errors){
+          setErrors(data.errors);
+        }
     });
   }
 
+  const cancelHandler = e =>{
+    e.preventDefault();
+    showModal(false);
+  }
+
+
   return(
-  <div className="image-form-page">
+
     <div className=" auth-form-container">
     <div className="auth-form-top" >
     <img className="auth-logo" src="/images/brand.svg" alt="brand"/>
@@ -74,11 +72,12 @@ function UploadImagePage(){
       </div>
       <div className="auth-btn-container">
         <button className="auth-btn" type="submit">Create</button>
+        <button className="demo-button btn" onClick={cancelHandler} type="button">Cancel</button>
       </div>
       </form>
     </div>
-  </div>
+
   )
 };
 
-export default UploadImagePage;
+export default EditImagePage;

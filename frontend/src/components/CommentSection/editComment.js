@@ -2,6 +2,7 @@ import React, { useState} from 'react';
 import { useDispatch} from 'react-redux';
 import { editComment,getImageComments } from '../../store/comments.js';
 
+import './commentSection.css'
 
 function EditComment({currComment}){
   const imageId = currComment.imageId;
@@ -23,26 +24,26 @@ function EditComment({currComment}){
 
   const handleClickForm = () =>{
     setShowForm(!showForm)
+
   }
 
   return(
-    <>
-     <i onClick={handleClickForm} className={showForm ? "fa-solid fa-x" : "fa-solid fa-pen-to-square fa-xl"} ></i>
-      <form className={showForm ? "edit-form" : "hide-form"} onSubmit={handleSubmit}>
-      <textarea
-            id="comment"
-            type="textarea"
-            placeholder={currComment.comment}
-            value={comment}
-            name="comment"
-            onChange={e => {
-              setSubmitBtn("")
-              setComment(e.target.value)}}
-            />
-        <button hidden={submitBtn} disabled={comment.length < 3} type="submit">Update</button>
-      </form>
-
-  </>
+    <div className="edit-form-container">
+      <i onClick={handleClickForm} className={showForm ? "fa-solid fa-x fa-x" : "fa-solid fa-pen-to-square fa-xl"} ></i>
+        <form className={showForm ? "edit-form" : "hide-form"} onSubmit={handleSubmit}>
+              <textarea
+              id="comment"
+              type="textarea"
+              placeholder={currComment.comment}
+              value={comment}
+              name="comment"
+              onChange={e => {
+                setSubmitBtn("")
+                setComment(e.target.value)}}
+              />
+          <button className="create-comment-btn" hidden={submitBtn} disabled={comment.length < 3} type="submit">Done</button>
+        </form>
+  </div>
 
   )
 }

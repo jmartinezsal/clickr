@@ -15,12 +15,13 @@ function Footer(){
           </a>
         </div>
       <div className="footer-right">
-        <h3>Powered by:</h3>
+        <h3>Created with:</h3>
         <i className="fa-brands fa-js">Javascript</i>
         <i className="fa-brands fa-html5">HTML</i>
         <i className="fa-brands fa-css3">CSS</i>
-        Sequelize
+        <i class="fa-brands fa-node-js">Node.js</i>
         <i className="fa-brands fa-react">React</i>
+
 
       </div>
 

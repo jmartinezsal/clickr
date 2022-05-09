@@ -1,6 +1,7 @@
 /* TODO Add site wide styles */
 * {
   margin: 0px;
+  font-family: sans-serif;
 }
 
 #root,body,html {
@@ -21,10 +22,11 @@ a {
 }
 
 .btn{
+  cursor: pointer;
   transition: transform .5s ease-in-out;
 }
 
-.btn:hover {
+.nav-bar .btn:hover {
   transform: scale(1.2);
 }
 
@@ -33,8 +35,7 @@ i{
   transition: transform .5s ease-in-out;
 }
 
-i:hover{
+ i:hover:not(footer i){
   transform: scale(1.2);
+
 }
-
-

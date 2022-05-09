@@ -12,6 +12,7 @@ import ImagePage from "./components/ImagePage/index.js";
 import Navigation from "./components/Navigation";
 import UploadImagePage from './components/UploadImage';
 import Footer from './components/Footer';
+import PageNotFound from "./components/PageNotFound/index.js";
 
 function App() {
   const dispatch = useDispatch();
@@ -43,11 +44,11 @@ function App() {
           <Route path="/upload">
             <UploadImagePage />
           </Route>
-          <Route path="/images/:imageId" >
+          <Route path="/images/:imageId(\d+)" >
             <ImagePage />
           </Route>
           <Route>
-            Page Not found
+            <PageNotFound />
           </Route>
         </Switch>
       )}

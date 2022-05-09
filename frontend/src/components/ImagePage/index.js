@@ -1,12 +1,13 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Redirect, useParams } from 'react-router-dom';
 
 import { getOneImage } from '../../store/images';
 import ImageActions from './ImageActions';
 import CommentSection from '../CommentSection';
 
 import './imagePage.css'
+import PageNotFound from '../PageNotFound';
 
 function ImagePage() {
   const dispatch = useDispatch();
@@ -17,13 +18,16 @@ function ImagePage() {
 
 
   useEffect(() =>{
-    dispatch(getOneImage(imageId));
+    dispatch(getOneImage(imageId))
+      .catch(async (res) => {
+      
+  })
+
   }, [dispatch, imageId])
 
   if(!image){
     return null;
   }
-
 
   return(
     <div className="image-page-container">
@@ -33,11 +37,17 @@ function ImagePage() {
           <ImageActions sessionUser={sessionUser} image={image} />
         }
       </div>
-      {image.User?.username}
-      <h2>{image?.title}</h2>
-      <p>{image?.description}</p>
+      <div className='comment-container-area'>
+      <div className="image-header">
+        <h4>{image.User?.username}</h4>
+        <h5>{image?.title}</h5>
+        <p>{image?.description}</p>
+      </div>
+      <div className="header-comment-divider">
 
-      <CommentSection sessionUser={sessionUser} imageId={image.id} />
+      </div>
+      <CommentSection sessionUser={sessionUser} imageId={imageId} />
+    </div>
     </div>
 
 

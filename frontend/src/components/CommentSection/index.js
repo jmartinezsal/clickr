@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {getImageComments} from '../../store/comments.js';
@@ -18,26 +18,27 @@ function CommentSection({sessionUser, imageId}){
 
 
   return(
-  <div className='comment-container-area'>
-    <div className="comments-container">
+  <>
+    <h4 className='comment-title'>Recent Comments</h4>
+    <div className="comment-container">
       {comments && comments?.map(comment => (
         <div className= "comment" key={comment.id}>
           <div className="comment-user">
-          {comment?.User?.username}
-          {comment.comment}
+            <h4>{comment?.User?.username}</h4>
+            <p>{comment.comment}</p>
           </div>
             {
               sessionUser && sessionUser.id === comment.userId &&
                <div className="user-actions">
                     <EditComment currComment={comment} />
-                    <DeleteCommentModal commentId={comment.id} imageId={imageId} />
+                    <DeleteCommentModal commentId={comment.id} />
               </div>
             }
         </div>
       ))}
       </div>
         <CreateComment sessionUser={sessionUser} imageId={imageId}/>
-  </div>
+  </>
   )
 
 }

@@ -1,49 +1,123 @@
-.comment-container-area{
+.comment-container-area {
   max-width: 100%;
   display: flex;
   flex-direction: column;
 
   justify-content: flex-start;
   padding: 10px 10%;
-  background:  rgba(236, 230, 230, 0.896);
+  background: #f3f5f6;
   padding-bottom: 15vh;
+  border-top: 2px solid rgba(128, 128, 128, 0.116);
 
 }
 
-.comment{
-  line-height: 5em;
+.comment-title{
+  color:#bfbfbf;
+  margin: 10px 0px;
+}
+
+.comment-user p{
+  margin-top: 10px;
+  color:#bfbfbf;
+
+}
+.comment {
   max-width: 100%;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  margin-bottom: 1.2em;
+  word-wrap: break-word;
+}
+
+.comment-container-area .user-actions i{
+  display: none;
 }
 
 
 .comment:hover{
   background-color: rgba(255, 255, 255, 0.827);
-  visibility: visible;
+}
+
+.comment:hover i{
+display: block;
+color:#bfbfbf
+}
+
+.comment i:hover{
+  color: black;
+}
+
+.comment .fa-trash:hover{
+  color:red;
 }
 
 
-textarea {
-  max-height:5.5em;
-  max-width:30em;
-  color:#999;
-  font-weight:200;
-  font-size:12px;
-  padding: 6px 10px;
-  border-radius: 3px;
+.comment-textarea {
+  height: 3.5em;
+  box-sizing: border-box;
+  width: 100%;
   line-height: 1.5em;
-  width:100%;
-  background:#fff;
-  border-radius:3px;
-  line-height:2em;
-  border:none;
-  box-shadow:0px 0px 5px 1px rgba(0,0,0,0.1);
-  overflow-wrap: break-word;
+  font-size: 16px;
+  margin-top: 1.5em;
+  padding: 6px 10px;
+  color: #999;
+  background: #fff;
+  border-radius: 5px;
+  border-color: #bfbfbf;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
+  outline: none;
+  resize: none;
 }
 
 
-.hide-form{
-display: none;
+.create-comment-btn{
+  margin-top: 10px;
+  height: 32px;
+  float: right;
+  background-color: #0091dc;
+  color: white;
+  border-color: transparent;
+  font-size: 16px;
+  font-weight: 400;
+  transition: background-color .25s ease-in-out;
+  min-width: 100px;
+  padding: 0 2px;
+}
+
+.create-comment-btn:hover{
+  background-color: #008fd6c9;
+
+}
+
+.hide-form {
+  display: none;
+}
+
+.edit-form-container{
+  display:flex;
+  flex-direction: column;
+}
+
+.fa-x{
+  width: fit-content;
+}
+.edit-form-container textarea{
+  height: 3.5em;
+  position: static;
+  box-sizing: border-box;
+  width: 100%;
+  line-height: 1.5em;
+  font-size: 16px;
+  margin-top: 1.5em;
+  padding: 6px 10px;
+  color: #999;
+  background: #fff;
+  border-radius: 5px;
+  border-color: #bfbfbf;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
+  outline: none;
+  resize: none;
+
+  z-index: 2;
 }

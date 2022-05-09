@@ -21,7 +21,7 @@ function ExplorePage(){
 
   return(
     <>
-      <h2>Explore</h2>
+      <h2 className="explore-title">Explore</h2>
       <div className='explore-image-container'>
 
         {images?.map((image,index) =>(
