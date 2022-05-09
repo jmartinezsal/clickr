@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, NavLink } from "react-router-dom";
 import * as sessionActions from "../../store/session";
@@ -33,42 +33,52 @@ function SignupFormPage() {
     <div className="auth-form-container">
       <div className="auth-form-top" >
         <img className="auth-logo" src="/images/brand.svg" alt="brand"/>
-          <h2>Sign up for Clickr</h2>
+          <h3>Sign up for Clickr</h3>
       </div>
       <form onSubmit={handleSubmit}>
         <ul className="errors">
           {errors.map((error, idx) =>
-          <li key={idx}>{error}</li>)}
+          <>
+          <li key={idx}>
+            <i class="fa-solid fa-exclamation fa-pulse"></i>
+            &nbsp; {error}
+          </li>
+          </>
+          )}
         </ul>
+        <div className="input-container">
           <input
             type="text"
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            
+
             />
           <input
             type="text"
             placeholder="Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            
+
           />
           <input
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            
+
           />
           <input
             type="password"
             placeholder="Confirm Password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
-            
           />
-        <button type="submit">Sign Up</button>
+          </div>
+        <div className="auth-btn-container">
+
+        <button type="submit" className="auth-btn">Sign Up</button>
+        </div>
       </form>
     </div>
   </div>

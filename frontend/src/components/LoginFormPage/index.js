@@ -37,11 +37,13 @@ function LoginFormPage(){
         <form onSubmit={handleSubmit}>
           <ul className="errors">
             {errors.map((error, idx) =>
-            <>
-              <li key={idx}>{error}</li>
-            </>
-
-            )}
+          <>
+          <li key={error.idx}>
+            <i class="fa-solid fa-exclamation  fa-pulse"></i>
+            &nbsp; {error}
+          </li>
+          </>
+        )}
           </ul>
           <div className="input-container">
             <input type="text"
@@ -56,9 +58,11 @@ function LoginFormPage(){
             onChange={e => setPassword(e.target.value)}
             />
           </div>
+          <div className="auth-btn-container">
             <button type="submit" className="auth-btn">Sign In</button>
+            <Demo />
+          </div>
         </form>
-        <Demo />
     </div>
   </div>
   )

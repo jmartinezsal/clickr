@@ -22,10 +22,11 @@ a {
 }
 
 .btn{
+  cursor: pointer;
   transition: transform .5s ease-in-out;
 }
 
-.btn:hover {
+.nav-bar .btn:hover {
   transform: scale(1.2);
 }
 

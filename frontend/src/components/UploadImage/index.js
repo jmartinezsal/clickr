@@ -35,7 +35,7 @@ function UploadImagePage(){
 
   return(
   <div className="image-form-page">
-    <div className=" auth-form-container">
+    <div className=" upload-form-container">
     <img className="auth-logo" src="/images/brand.svg" alt="brand"/>
       <h2>Upload an image</h2>
       <form onSubmit={handleSubmit}>
