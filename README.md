@@ -9,7 +9,6 @@ to cherish your work.
 * [Database Schema](https://github.com/jmartinezsal/clickr/wiki/Database-Schema)
 * [MVP Feature List](https://github.com/jmartinezsal/clickr/wiki/MVP-Feature-List)
 
-All features update the page the user is on without a refresh of the page through the use of the Redux store.
 
 ## Technologies Used
 
@@ -106,7 +105,7 @@ https://user-images.githubusercontent.com/96754787/167398861-f28ec7ed-feff-4c0e-
 
 ##Page Not Found
   
-Trying to access a path that does not exist or is not available because the user is not signed in will render a page not found component, 
+Trying to access a path that does not exist will render a page not found component, 
 and redirects the user to the home page automatically after 5 seconds.
 
   
