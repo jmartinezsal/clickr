@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { createComment, getImageComments } from '../../store/comments.js';
+import { createComment, getImageComments, getAllComments } from '../../store/comments.js';
 import { useHistory } from 'react-router-dom';
 
 
@@ -20,7 +20,7 @@ function CreateComment({imageId, sessionUser}){
     }
     setComment("");
      dispatch(createComment({comment,imageId}))
-     .then(()=>dispatch(getImageComments(imageId)));
+     .then(()=>dispatch(getAllComments()));
 
   }
 

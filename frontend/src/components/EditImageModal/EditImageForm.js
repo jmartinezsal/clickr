@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import {editImage, getOneImage} from '../../store/images';
+import {editImage, getAllImages, getOneImage} from '../../store/images';
 
 function EditImagePage({showModal, image}){
   const dispatch = useDispatch();
@@ -15,7 +15,7 @@ function EditImagePage({showModal, image}){
     e.preventDefault();
     setErrors([]);
     dispatch(editImage({imageUrl, title, description, id: imageId}))
-      .then(()=>dispatch(getOneImage(image.id)))
+      .then(()=>dispatch(getAllImages()))
       .then(() => showModal(false))
       .catch(async (res) => {
         const data = await res.json();

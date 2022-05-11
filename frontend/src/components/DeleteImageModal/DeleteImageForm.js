@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import {deleteImage} from '../../store/images';
+import {deleteImage, getAllImages} from '../../store/images';
 
 function DeleteImageForm({showModal,imageId}){
   const dispatch = useDispatch();
@@ -10,8 +10,9 @@ function DeleteImageForm({showModal,imageId}){
 
   const deleteHandler = e => {
     e.preventDefault();
-    history.push('/explore');
     dispatch(deleteImage(imageId))
+      .then (()=> dispatch(getAllImages()));
+    history.push('/explore');
   }
 
   const cancleHandler = e =>{

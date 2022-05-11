@@ -122,7 +122,6 @@ const commentsReducer = (state = initialState, action) =>{
         return newState;
       } else return state;
     }
-
     case CREATE:{
         let newState = {
           ...state,

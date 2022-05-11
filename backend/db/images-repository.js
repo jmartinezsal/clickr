@@ -2,6 +2,10 @@ const { Image, User, Comment } = require("./models");
 
 async function allImages() {
   return await Image.findAll({
+    include: [{
+      model: User,
+      attributes:["username"]
+    }],
     order:[['createdAt', 'DESC']]
   });
 }

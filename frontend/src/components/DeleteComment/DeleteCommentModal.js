@@ -1,17 +1,18 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { deleteComment, getImageComments } from "../../store/comments";
+import { deleteComment, getAllComments, getImageComments } from "../../store/comments";
 
 function DeleteCommentForm({showModal, commentId}){
   const dispatch = useDispatch();
   const { imageId } = useParams()
-  
+
   const deleteHandler = async (e) =>{
     e.preventDefault();
-    dispatch(deleteComment(commentId))
-    .then(()=>dispatch(getImageComments(imageId)));
+    await dispatch(deleteComment(commentId))
+    .then(()=> dispatch(getAllComments()))
     showModal(false)
+    // .then(()=>dispatch(getImageComments(imageId)));
   }
 
   const cancleHandler = e =>{

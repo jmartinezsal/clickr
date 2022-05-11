@@ -1,7 +1,11 @@
 const { Image, User, Comment } = require("./models");
 
 async function allComments(){
-  return await Comment.findAll();
+  return await Comment.findAll({
+    include: [{
+    model: User,
+    attributes:["username"]
+  }],});
 }
 
 async function allCommentsInImage(imageId){

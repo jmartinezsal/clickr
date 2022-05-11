@@ -1,6 +1,6 @@
 import React, { useState} from 'react';
 import { useDispatch} from 'react-redux';
-import { editComment,getImageComments } from '../../store/comments.js';
+import { editComment,getAllComments } from '../../store/comments.js';
 
 import './commentSection.css'
 
@@ -17,7 +17,7 @@ function EditComment({currComment}){
   const handleSubmit = e => {
     e.preventDefault();
     dispatch(editComment({comment, id, imageId}))
-    .then(()=>dispatch(getImageComments(imageId)));
+    .then(()=>dispatch(getAllComments()));
     setShowForm(false);
 
   }
