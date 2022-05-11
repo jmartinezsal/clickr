@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import { getAllImages, getOneImage } from '../../store/images';
+import { getAllImages } from '../../store/images';
 import ImageActions from './ImageActions';
 import CommentSection from '../CommentSection';
 

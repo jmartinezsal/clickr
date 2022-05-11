@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { createComment, getImageComments, getAllComments } from '../../store/comments.js';
+import { createComment, getAllComments } from '../../store/comments.js';
 import { useHistory } from 'react-router-dom';
 
 

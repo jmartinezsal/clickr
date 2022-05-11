@@ -11,7 +11,6 @@ function DeleteCommentForm({showModal, commentId}){
     await dispatch(deleteComment(commentId))
     .then(()=> dispatch(getAllComments()))
     showModal(false)
-    // .then(()=>dispatch(getImageComments(imageId)));
   }
 
   const cancleHandler = e =>{

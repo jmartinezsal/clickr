@@ -18,6 +18,11 @@
 
 .nav-bar-center *{
   color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.nav-bar-center:active{
+  color: red
 }
 
 .logo-img{

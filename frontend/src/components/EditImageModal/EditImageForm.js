@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import {editImage, getAllImages, getOneImage} from '../../store/images';
+import {editImage, getAllImages} from '../../store/images';
 
 function EditImagePage({showModal, image}){
   const dispatch = useDispatch();

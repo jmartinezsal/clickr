@@ -1,19 +1,13 @@
 import {csrfFetch} from './csrf'
 
-const LOAD_IMAGE_COMMENTS = 'comments/LOAD_IMAGE_COMMENTS';
-const LOAD_ALL_COMMENTS = 'comments/LOAD_ALL_COMMENTS'
+const LOAD = 'comments/LOAD'
 const CREATE = 'comments/CREATE';
 const EDIT = 'comments/EDIT';
 const REMOVE = 'comments/REMOVE';
 
 
 const loadAll = comments =>({
-  type: LOAD_ALL_COMMENTS,
-  comments
-});
-
-const load = comments =>({
-  type: LOAD_IMAGE_COMMENTS,
+  type: LOAD,
   comments
 });
 
@@ -40,15 +34,6 @@ export const getAllComments = () => async dispatch =>{
     const comments = await res.json();
 
     dispatch(loadAll(comments));
-  }
-}
-
-export const getImageComments = (imageId) => async dispatch =>{
-  const res = await fetch(`/api/images/${imageId}/comments`);
-
-  if(res.ok){
-    const comments = await res.json();
-    dispatch(load(comments))
   }
 }
 
@@ -103,7 +88,7 @@ const initialState = { };
 
 const commentsReducer = (state = initialState, action) =>{
   switch(action.type){
-    case LOAD_ALL_COMMENTS:{
+    case LOAD:{
       const allComments = {...state};
       action.comments.forEach(comment => {
         allComments[comment.id] = comment;
@@ -111,16 +96,6 @@ const commentsReducer = (state = initialState, action) =>{
       return {
         ...allComments
       }
-    }
-    case LOAD_IMAGE_COMMENTS:{
-      if(action.comments.length){
-        let imageId = action.comments[0].imageId
-        const newState = {
-          ...state,
-          [imageId]: action.comments
-        };
-        return newState;
-      } else return state;
     }
     case CREATE:{
         let newState = {

@@ -1,7 +1,6 @@
 import {csrfFetch} from './csrf'
 
 const LOAD = 'images/LOAD';
-const LOAD_ONE = 'images/LOAD_ONE';
 const CREATE = 'images/CREATE';
 const EDIT = 'images/EDIT';
 const REMOVE = 'images/REMOVE';
@@ -12,10 +11,7 @@ const load = images =>({
   images
 });
 
-const loadOne = image =>({
-  type: LOAD_ONE,
-  image
-})
+
 
 const create = image => ({
   type: CREATE,
@@ -42,14 +38,7 @@ export const getAllImages = () => async dispatch =>{
   }
 }
 
-export const getOneImage = imageId => async dispatch => {
-  const res = await fetch(`/api/images/${imageId}`);
 
-  if(res.ok){
-    const details = await res.json();
-    dispatch(loadOne(details))
-  }
-}
 
 export const createImage = payload => async dispatch =>{
   const body = JSON.stringify(payload);
@@ -109,14 +98,6 @@ const imagesReducer = (state = initialState, action) =>{
         ...allImages
       }
     }
-    case LOAD_ONE:{
-      const newState = {
-        ...state,
-        [action.image.id]: action.image
-      };
-      return newState;
-    }
-
     case CREATE:{
       const newState = {
         ...state,
