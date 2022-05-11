@@ -11,7 +11,7 @@ function DeleteImageForm({showModal,imageId}){
   const deleteHandler = e => {
     e.preventDefault();
     dispatch(deleteImage(imageId))
-      .then (()=> dispatch(getAllImages()));
+      .then(()=> dispatch(getAllImages()));
     history.push('/explore');
   }
 

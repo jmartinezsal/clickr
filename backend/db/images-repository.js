@@ -58,11 +58,8 @@ async function deleteImage(imageId){
 
   comments.forEach(async comment => await comment.destroy())
 
-  await Image.destroy({
-    where:{
-      id: image.id
-    }
-  })
+  await image.destroy()
+
   return image.id;
 }
 module.exports ={
