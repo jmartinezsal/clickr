@@ -1,4 +1,4 @@
-const { Image, User, Comment } = require("./models");
+const { Image, User, Comment } = require("../models");
 
 async function allComments(){
   return await Comment.findAll({

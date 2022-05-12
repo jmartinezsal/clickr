@@ -3,7 +3,7 @@ const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 
 const { requireAuth } = require('../../utils/auth');
-const { allComments, createComment, updateComment, deleteComment }= require('../../db/comments-repository');
+const { allComments, createComment, updateComment, deleteComment }= require('../../db/queries/comments-repository');
 const { handleValidationErrors } = require('../../utils/validation');
 
 const commentsValidator = [

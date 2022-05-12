@@ -3,8 +3,8 @@ const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 
 const { requireAuth } = require('../../utils/auth');
-const {allImages, findOneImage, createImage, updateImage, deleteImage} = require('../../db/images-repository');
-const { allCommentsInImage } = require('../../db/comments-repository');
+const {allImages, findOneImage, createImage, updateImage, deleteImage} = require('../../db/queries/images-repository');
+const { allCommentsInImage } = require('../../db/queries/comments-repository');
 const { handleValidationErrors } = require('../../utils/validation');
 
 const imageValidators = [
