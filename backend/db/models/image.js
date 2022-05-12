@@ -12,8 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     Image.belongsTo(models.Album, {foreignKey:'albumId'});
     Image.hasMany(models.Comment, {foreignKey: "imageId"});
     Image.belongsTo(models.User, {foreignKey: "userId"});
-
-
+    Image.hasMany(models.Favorite, {foreignKey: "imageId"});
   };
   return Image;
 };

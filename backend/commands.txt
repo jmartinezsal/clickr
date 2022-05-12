@@ -2,7 +2,8 @@
 npx sequelize model:generate --name Album --attributes title:string,userId:string
 npx sequelize model:generate --name Image --attributes imageUrl:string,title:string,description:text,userId:integer,albumId:integer
 npx sequelize model:generate --name Comment --attributes comment:string,userId:integer,imageId:integer
-
+npx sequelize model:generate --name Profile --attributes userId:integer,fullName:string,profilePic:string,backgroundPic:string,description:string
+npx sequelize model:generate --name Favorite --attributes userId:integer,imageId:integer
 
 npx sequelize seed:generate --name Album_data
 npx sequelize seed:generate --name Image_data
