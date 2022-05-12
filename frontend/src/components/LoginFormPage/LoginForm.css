@@ -24,7 +24,7 @@
   flex-direction: column;
   min-width: 20em;
   max-width: fit-content;
-  min-height: 25em;
+  min-height: 22em;
   max-height: fit-content;
 }
 
@@ -53,6 +53,7 @@
 .errors {
   list-style: none;
   padding-bottom: 10px;
+  padding-left: 20px;
   display: flex;
   flex-direction: column;
   font-size: 14px;
@@ -78,4 +79,5 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 20px;
 }
