@@ -18,8 +18,31 @@ async function findOneImage(imageId) {
     }],
   });
 
-
   return image;
+}
+
+async function imagesByUser(userId){
+  const images = await Image.findAll({
+    include: [{
+      model: Comment,
+      attributes: []
+      },{
+        model: User,
+        attributes: [
+          'username',
+        ]
+      }
+    ],
+      attributes:[
+        'id',
+        'title',
+        [sequelize.fn("COUNT", sequelize.col("Comments.imageId")), "commentCnt"]
+            ],
+    where: {
+      userId
+    }
+  })
+  return images;
 }
 
 async function createImage(details){
@@ -65,6 +88,7 @@ async function deleteImage(imageId){
 module.exports ={
   allImages,
   findOneImage,
+  imagesByUser,
   createImage,
   updateImage,
   deleteImage

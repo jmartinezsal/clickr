@@ -5,7 +5,8 @@ async function allComments(){
     include: [{
     model: User,
     attributes:["username"]
-  }],});
+  }]
+});
 }
 
 async function allCommentsInImage(imageId){
